@@ -15,93 +15,93 @@
       color: #333;
     }
     header {
-      background-color: #222;
+      background-color: #0a0a23;
       color: white;
-      padding: 20px;
       text-align: center;
-      overflow: hidden;
-      position: relative;
+      padding: 20px 10px;
     }
     .logo {
-      height: 50px;
-      width: auto;
-      max-width: 100%;
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
       animation: slideIn 1s ease-out;
     }
+    h1 {
+      margin: 10px 0;
+    }
+    nav {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-in 0.5s forwards;
+      opacity: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     @keyframes slideIn {
-      0% {
+      from {
         transform: translateX(-100%);
         opacity: 0;
       }
-      100% {
+      to {
         transform: translateX(0);
         opacity: 1;
       }
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 10px;
-      animation: fadeIn 1s ease-in 0.5s forwards;
-      opacity: 0;
     }
     @keyframes fadeIn {
       to {
         opacity: 1;
       }
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
     section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-      background-color: white;
-      margin-top: 30px;
+      margin: 30px 15px;
+      background: #fff;
+      padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .card {
+      margin-top: 15px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     input, select, textarea, button {
-      display: block;
       width: 100%;
-      margin-top: 10px;
       padding: 10px;
-      border-radius: 8px;
+      margin-top: 10px;
       border: 1px solid #ccc;
+      border-radius: 8px;
     }
     button {
-      background-color: #007BFF;
+      background-color: #0a0a23;
       color: white;
-      border: none;
+      font-weight: bold;
       cursor: pointer;
     }
     button:hover {
-      background-color: #0056b3;
+      background-color: #333;
     }
     footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #222;
+      background: #0a0a23;
       color: white;
+      text-align: center;
+      padding: 15px 10px;
       margin-top: 40px;
     }
     .elfsight-app-f60fee5f-f010-46de-8f3c-96f61261b102 {
       position: fixed;
       bottom: 20px;
       right: 20px;
-    }
-    @media (max-width: 600px) {
-      .logo {
-        height: 40px;
-      }
     }
   </style>
   <script>
@@ -147,18 +147,6 @@
 
       document.getElementById('precio').textContent = mensaje;
     }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const enlaces = document.querySelectorAll('nav a');
-      enlaces.forEach(enlace => {
-        if (enlace.textContent.toUpperCase().includes("COBERTURA")) {
-          enlace.addEventListener('click', e => {
-            e.preventDefault();
-            window.open('https://www.google.com/maps/d/edit?mid=1rue098ufi3My-VkT-NEtVKMx-LBL4RA&usp=sharing', '_blank');
-          });
-        }
-      });
-    });
   </script>
   <script src="https://static.elfsight.com/platform/platform.js" async></script>
 </head>
@@ -167,44 +155,48 @@
     <img src="./bc98fcf9-970b-4d54-b6da-32ce79026a14.png" alt="Logo Kilómetro Cero" class="logo">
     <h1>Kilómetro Cero</h1>
     <nav>
-      <a href="#cotizador">Cotizador</a>
+      <a href="#cotizador">Servicios</a>
       <a href="#contacto">Contacto</a>
-      <a href="#" id="cobertura">Cobertura</a>
+      <a href="https://www.google.com/maps/d/edit?mid=1rue098ufi3My-VkT-NEtVKMx-LBL4RA&usp=sharing" target="_blank">Cobertura</a>
     </nav>
   </header>
 
-  <section id="cotizador" class="cotizador">
-    <h2>💸 Cotiza tu envío</h2>
-    <label for="zona">Selecciona zona:</label>
-    <select id="zona">
-      <option value="centro">Centro de Quito</option>
-      <option value="norte">Norte de Quito</option>
-      <option value="sur">Sur de Quito</option>
-      <option value="valles">Valles</option>
-      <option value="express">Mensajería Express</option>
-    </select>
-    <label for="direccion">Dirección destino (solo para Express):</label>
-    <input type="text" id="direccion" placeholder="Ej. Calle Ejemplo 123, Quito">
-    <button onclick="cotizarEnvio()">Calcular costo</button>
-    <div id="precio" class="resultado"></div>
+  <section>
+    <h2>Logística de Última Milla en Quito</h2>
+    <p>Especialistas en entregas rápidas, seguras y con pago contra entrega. Conectamos tu tienda con tus clientes de forma eficiente.</p>
   </section>
 
-  <section id="contacto" class="formulario">
-    <h2>📩 Contáctanos directamente</h2>
-    <form action="https://formsubmit.co/kilometro0ec@gmail.com" method="POST">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu correo electrónico" required>
-      <textarea name="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
-      <input type="hidden" name="_subject" value="Nuevo mensaje desde la web Kilómetro 0">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_autoresponse" value="Gracias por contactarte con Kilómetro Cero. Te responderemos pronto.">
-      <input type="hidden" name="_next" value="https://kilometro0-ec.github.io/confirmacion.html">
-      <button type="submit">Enviar mensaje</button>
-    </form>
+  <section id="cotizador">
+    <div class="card">
+      <h3>💸 Cotiza tu envío</h3>
+      <label>Selecciona la zona de entrega:</label>
+      <select id="zona">
+        <option value="">-- Elige una zona --</option>
+        <option value="centro">Centro</option>
+        <option value="norte">Norte</option>
+        <option value="sur">Sur</option>
+        <option value="valles">Valles</option>
+        <option value="express">Express</option>
+      </select>
+      <input id="direccion" type="text" placeholder="Ej. Av. Amazonas y Patria (opcional)">
+      <button onclick="cotizarEnvio()">Calcular costo</button>
+      <div id="precio"></div>
+    </div>
+
+    <div class="card">📬 <strong>Entregas de Última Milla</strong><br>Servicio ágil en zonas urbanas y periféricas de Quito.</div>
+    <div class="card">💵 <strong>Pago Contra Entrega</strong><br>Recaudamos el dinero por ti en cada entrega.</div>
+    <div class="card">📸 <strong>Prueba de Entrega</strong><br>Fotos y firmas como respaldo de cada envío completado.</div>
+    <div class="card">📲 <strong>Seguimiento por WhatsApp</strong><br>Informamos en tiempo real sobre el estado de los envíos.<br><button style="margin-top:10px;">Ver seguimiento</button></div>
+  </section>
+
+  <section id="contacto">
+    <h3>📍 Contáctanos</h3>
+    <p>📌 Av. Cusubamba y Tendales S2234, Quito, Ecuador<br>📞 +593 984 116 019<br>🔗 <a href="#">Visita nuestra web</a></p>
+    <button>Ver Cobertura en Mapa</button>
   </section>
 
   <footer>
-    <p>© 2025 Kilómetro Cero. Quito, Ecuador</p>
+    <p>© 2025 Kilómetro Cero. Todos los derechos reservados.</p>
   </footer>
 
   <div class="elfsight-app-f60fee5f-f010-46de-8f3c-96f61261b102" data-elfsight-app-lazy></div>
