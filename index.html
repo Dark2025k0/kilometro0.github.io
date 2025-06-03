@@ -6,7 +6,66 @@
   <title>Kilómetro Cero - Entregas de Última Milla</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap">
   <style>
-    /* estilos existentes */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      margin-top: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: white;
+      margin-top: 40px;
+    }
   </style>
   <script>
     async function cotizarEnvio() {
@@ -67,9 +126,16 @@
   <script src="https://static.elfsight.com/platform/platform.js" async></script>
 </head>
 <body>
-  <!-- Secciones existentes -->
+  <header>
+    <h1>Kilómetro Cero</h1>
+    <nav>
+      <a href="#cotizador">Cotizador</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#" id="cobertura">Cobertura</a>
+    </nav>
+  </header>
 
-  <section class="cotizador">
+  <section id="cotizador" class="cotizador">
     <h2>💸 Cotiza tu envío</h2>
     <label for="zona">Selecciona zona:</label>
     <select id="zona">
@@ -85,9 +151,9 @@
     <div id="precio" class="resultado"></div>
   </section>
 
-  <section class="formulario">
+  <section id="contacto" class="formulario">
     <h2>📩 Contáctanos directamente</h2>
-    <form action="https://formsubmit.co/YOUR_EMAIL@YOURDOMAIN.COM" method="POST">
+    <form action="https://formsubmit.co/kilometro0ec@gmail.com" method="POST">
       <input type="text" name="nombre" placeholder="Tu nombre" required>
       <input type="email" name="email" placeholder="Tu correo electrónico" required>
       <textarea name="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
@@ -98,6 +164,10 @@
       <button type="submit">Enviar mensaje</button>
     </form>
   </section>
+
+  <footer>
+    <p>© 2025 Kilómetro Cero. Quito, Ecuador</p>
+  </footer>
 
   <div class="elfsight-app-f60fee5f-f010-46de-8f3c-96f61261b102" data-elfsight-app-lazy></div>
 </body>
