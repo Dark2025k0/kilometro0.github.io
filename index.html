@@ -111,6 +111,7 @@
       font-weight: bold;
       font-size: 1.2rem;
       color: #0a0a23;
+      white-space: pre-line;
     }
   </style>
   <script>
@@ -127,12 +128,12 @@
           break;
         case 'express':
           mensaje = 'Mensajería Express desde $5 según la distancia';
+          if (direccion) {
+            mensaje += `\nDirección ingresada: ${direccion}`;
+          }
           break;
         default:
           mensaje = 'Zona fuera de cobertura';
-      }
-      if (direccion && zona === 'express') {
-        mensaje += `\nDirección ingresada: ${direccion}`;
       }
       document.getElementById('precio').textContent = mensaje;
     }
@@ -194,4 +195,12 @@
     <h2>Contáctanos</h2>
     <p>📍 Av. Cusubamba y Tendales S2234, Quito, Ecuador</p>
     <p>📞 +593 984 116 019</p>
-    <p>🌐
+    <p>🌐 <a href="https://kilometro0-ec.github.io" target="_blank">Visita nuestra web</a></p>
+    <a href="https://www.google.com/maps/d/edit?mid=1rue098ufi3My-VkT-NEtVKMx-LBL4RA&usp=sharing" target="_blank" class="boton">Ver Cobertura en Mapa</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kilómetro Cero. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
