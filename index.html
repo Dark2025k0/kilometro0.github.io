@@ -3,76 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kilómetro 0 - Tienda</title>
+  <title>KILÓMETRO CERO - Mensajería Última Milla</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
-      background-color: #f4f4f4;
-      color: #333;
+      padding: 0;
+      background-color: #000;
+      color: #eee;
     }
     header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
       text-align: center;
+      background-color: #000;
+      padding: 30px 20px 10px;
     }
-    .container {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
+    header img {
+      width: 150px;
     }
-    h2 {
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
+    header h1 {
+      color: red;
+      font-size: 2.2em;
+      margin: 10px 0 0;
     }
-    .product {
-      margin: 10px 0;
+    header p {
+      font-style: italic;
+      color: #ccc;
+    }
+    nav {
+      background-color: #111;
       padding: 10px;
-      border: 1px solid #eee;
-      border-radius: 8px;
-    }
-    .whatsapp {
-      display: block;
-      background-color: #25D366;
-      color: white;
       text-align: center;
-      padding: 12px;
-      border-radius: 8px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .cta {
+      background-color: red;
+      color: white;
+      padding: 15px 25px;
+      display: inline-block;
       margin-top: 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    ul, ol {
+      line-height: 1.6;
+    }
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Kilómetro 0</h1>
-    <p>Productos locales y sustentables</p>
+    <img src="Kilometro Logo.png" alt="Logo Kilómetro Cero">
+    <h1>KILÓMETRO CERO</h1>
+    <p>"Entregas eficientes para un mundo conectado."</p>
   </header>
 
-  <div class="container">
-    <h2>Productos destacados</h2>
-    <div class="product">
-      <strong>Yerba Mate Orgánica</strong><br>
-      1kg – $2.000
-    </div>
-    <div class="product">
-      <strong>Miel pura de abejas</strong><br>
-      500g – $1.200
-    </div>
-    <div class="product">
-      <strong>Verduras frescas de estación</strong><br>
-      Precio según disponibilidad
-    </div>
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
-    <h2>Contacto</h2>
-    <p>📍 Calle Falsa 123, Tu Ciudad</p>
-    <p>📞 +54 9 11 1234-5678</p>
+  <section id="servicios">
+    <h2>🚚 ¿Qué ofrecemos?</h2>
+    <ul>
+      <li>Entrega rápida y segura en Quito y alrededores</li>
+      <li>Recolección en tiendas y domicilios</li>
+      <li>Pago contra entrega (efectivo, QR o POS móvil)</li>
+      <li>Soporte en tiempo real</li>
+    </ul>
+  </section>
 
-    <a class="whatsapp" href="https://wa.me/5491112345678" target="_blank">💬 Hacer pedido por WhatsApp</a>
-  </div>
+  <section id="como-funciona">
+    <h2>⚙️ Cómo funciona</h2>
+    <ol>
+      <li>El comercio o cliente agenda la recolección</li>
+      <li>Nuestro repartidor recoge el paquete</li>
+      <li>Realizamos la entrega al destinatario</li>
+      <li>Cobramos el pago y lo transferimos al comercio</li>
+    </ol>
+    <a class="cta" href="https://wa.me/593984116019" target="_blank">Agenda tu envío por WhatsApp</a>
+  </section>
+
+  <section id="contacto">
+    <h2>📍 Contacto</h2>
+    <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/593984116019" style="color:#eee;">+593 98 411 6019</a></p>
+    <p><strong>Correo:</strong> info@kilometrocero.ec</p>
+    <p><strong>Dirección:</strong> Av. Cusubamba y Tendales S2234, Quito, Ecuador</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Kilómetro Cero. Todos los derechos reservados.
+  </footer>
+
 </body>
 </html>
