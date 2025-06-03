@@ -78,7 +78,65 @@
     .contacto p {
       margin: 0.5rem 0;
     }
+    .contacto a.boton {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #0a0a23;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .cotizador {
+      background: #fff;
+      padding: 2rem;
+      margin: 2rem auto;
+      text-align: center;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .cotizador label, .cotizador select, .cotizador input {
+      font-size: 1rem;
+      display: block;
+      margin: 1rem 0;
+    }
+    .cotizador select, .cotizador input {
+      padding: 0.5rem;
+      width: 100%;
+    }
+    .cotizador .resultado {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #0a0a23;
+    }
   </style>
+  <script>
+    function cotizarEnvio() {
+      const zona = document.getElementById('zona').value;
+      const direccion = document.getElementById('direccion').value;
+      let mensaje = '';
+      switch (zona) {
+        case 'centro':
+        case 'norte':
+        case 'sur':
+        case 'valles':
+          mensaje = 'Costo de entrega: $3.50';
+          break;
+        case 'express':
+          mensaje = 'Mensajería Express desde $5 según la distancia';
+          break;
+        default:
+          mensaje = 'Zona fuera de cobertura';
+      }
+      if (direccion && zona === 'express') {
+        mensaje += `\nDirección ingresada: ${direccion}`;
+      }
+      document.getElementById('precio').textContent = mensaje;
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -94,6 +152,23 @@
   <section class="hero">
     <h1>Logística de Última Milla en Quito</h1>
     <p>Especialistas en entregas rápidas, seguras y con pago contra entrega. Conectamos tu tienda con tus clientes de forma eficiente.</p>
+  </section>
+
+  <section class="cotizador">
+    <h2>💰 Cotiza tu envío</h2>
+    <label for="zona">Selecciona la zona de entrega:</label>
+    <select id="zona" onchange="cotizarEnvio()">
+      <option value="">-- Elige una zona --</option>
+      <option value="centro">Centro de Quito</option>
+      <option value="norte">Norte de Quito</option>
+      <option value="sur">Sur de Quito</option>
+      <option value="valles">Valles (Cumbayá, Tumbaco, etc.)</option>
+      <option value="express">Mensajería Express</option>
+      <option value="otro">Otra zona</option>
+    </select>
+    <label for="direccion">Dirección exacta (opcional):</label>
+    <input type="text" id="direccion" placeholder="Ej. Av. Amazonas y Patria">
+    <div class="resultado" id="precio"></div>
   </section>
 
   <section class="features" id="servicios">
@@ -119,11 +194,4 @@
     <h2>Contáctanos</h2>
     <p>📍 Av. Cusubamba y Tendales S2234, Quito, Ecuador</p>
     <p>📞 +593 984 116 019</p>
-    <p>🌐 <a href="https://kilometro0-ec.github.io" target="_blank">Visita nuestra web</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Kilómetro Cero. Todos los derechos reservados.</p>
-  </footer>
-</body>
-</html>
+    <p>🌐
