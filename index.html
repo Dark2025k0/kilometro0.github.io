@@ -23,8 +23,9 @@
       position: relative;
     }
     .logo {
-      max-height: 60px;
-      vertical-align: middle;
+      height: 50px;
+      width: auto;
+      max-width: 100%;
       animation: slideIn 1s ease-out;
     }
     @keyframes slideIn {
@@ -39,6 +40,7 @@
     }
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
       margin-top: 10px;
@@ -90,6 +92,16 @@
       background-color: #222;
       color: white;
       margin-top: 40px;
+    }
+    .elfsight-app-f60fee5f-f010-46de-8f3c-96f61261b102 {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    @media (max-width: 600px) {
+      .logo {
+        height: 40px;
+      }
     }
   </style>
   <script>
@@ -152,7 +164,7 @@
 </head>
 <body>
   <header>
-    <img src="https://kilometro0-ec.github.io/assets/logo.png" alt="Logo Kilómetro Cero" class="logo">
+    <img src="./bc98fcf9-970b-4d54-b6da-32ce79026a14.png" alt="Logo Kilómetro Cero" class="logo">
     <h1>Kilómetro Cero</h1>
     <nav>
       <a href="#cotizador">Cotizador</a>
