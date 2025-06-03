@@ -2,114 +2,127 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KILÓMETRO CERO - Mensajería Última Milla</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kilómetro Cero - Entregas de Última Milla</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap">
   <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif;
+    }
     body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: #eee;
-    }
-    header {
-      text-align: center;
-      background-color: #000;
-      padding: 30px 20px 10px;
-    }
-    header img {
-      width: 150px;
-    }
-    header h1 {
-      color: red;
-      font-size: 2.2em;
-      margin: 10px 0 0;
-    }
-    header p {
-      font-style: italic;
-      color: #ccc;
-    }
-    nav {
-      background-color: #111;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .cta {
-      background-color: red;
-      color: white;
-      padding: 15px 25px;
-      display: inline-block;
-      margin-top: 20px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-    ul, ol {
+      background-color: #f9f9f9;
+      color: #333;
       line-height: 1.6;
     }
-    footer {
-      background-color: #111;
-      color: #888;
+    header {
+      background-color: #0a0a23;
+      color: #fff;
+      padding: 1.5rem;
       text-align: center;
-      padding: 30px 20px;
+    }
+    header img {
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: #f2f2f2;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .hero {
+      background-color: #ffffff;
+      padding: 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      color: #0a0a23;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 2rem;
+    }
+    .feature {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin: 1rem;
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center;
+    }
+    footer {
+      background-color: #0a0a23;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+    .contacto {
+      padding: 2rem;
+      background-color: #eaeaea;
+      text-align: center;
+    }
+    .contacto p {
+      margin: 0.5rem 0;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="Kilometro Logo.png" alt="Logo Kilómetro Cero">
-    <h1>KILÓMETRO CERO</h1>
-    <p>"Entregas eficientes para un mundo conectado."</p>
+    <img src="Kilometro%20Logo.png" alt="Logo Kilómetro Cero">
+    <h1>Kilómetro Cero</h1>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#servicios">Servicios</a>
-    <a href="#como-funciona">Cómo funciona</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <section id="servicios">
-    <h2>🚚 ¿Qué ofrecemos?</h2>
-    <ul>
-      <li>Entrega rápida y segura en Quito y alrededores</li>
-      <li>Recolección en tiendas y domicilios</li>
-      <li>Pago contra entrega (efectivo, QR o POS móvil)</li>
-      <li>Soporte en tiempo real</li>
-    </ul>
+  <section class="hero">
+    <h1>Logística de Última Milla en Quito</h1>
+    <p>Especialistas en entregas rápidas, seguras y con pago contra entrega. Conectamos tu tienda con tus clientes de forma eficiente.</p>
   </section>
 
-  <section id="como-funciona">
-    <h2>⚙️ Cómo funciona</h2>
-    <ol>
-      <li>El comercio o cliente agenda la recolección</li>
-      <li>Nuestro repartidor recoge el paquete</li>
-      <li>Realizamos la entrega al destinatario</li>
-      <li>Cobramos el pago y lo transferimos al comercio</li>
-    </ol>
-    <a class="cta" href="https://wa.me/593984116019" target="_blank">Agenda tu envío por WhatsApp</a>
+  <section class="features" id="servicios">
+    <div class="feature">
+      <h3>🚚 Entregas de Última Milla</h3>
+      <p>Servicio ágil en zonas urbanas y periféricas de Quito.</p>
+    </div>
+    <div class="feature">
+      <h3>💵 Pago Contra Entrega</h3>
+      <p>Recaudamos el dinero por ti en cada entrega.</p>
+    </div>
+    <div class="feature">
+      <h3>📸 Prueba de Entrega</h3>
+      <p>Fotos y firmas como respaldo de cada envío completado.</p>
+    </div>
+    <div class="feature">
+      <h3>📲 Seguimiento por WhatsApp</h3>
+      <p>Informamos en tiempo real sobre el estado de los envíos.</p>
+    </div>
   </section>
 
-  <section id="contacto">
-    <h2>📍 Contacto</h2>
-    <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/593984116019" style="color:#eee;">+593 98 411 6019</a></p>
-    <p><strong>Correo:</strong> info@kilometrocero.ec</p>
-    <p><strong>Dirección:</strong> Av. Cusubamba y Tendales S2234, Quito, Ecuador</p>
+  <section class="contacto" id="contacto">
+    <h2>Contáctanos</h2>
+    <p>📍 Av. Cusubamba y Tendales S2234, Quito, Ecuador</p>
+    <p>📞 +593 984 116 019</p>
+    <p>🌐 <a href="https://kilometro0-ec.github.io" target="_blank">Visita nuestra web</a></p>
   </section>
 
   <footer>
-    &copy; 2025 Kilómetro Cero. Todos los derechos reservados.
+    <p>&copy; 2025 Kilómetro Cero. Todos los derechos reservados.</p>
   </footer>
-
 </body>
 </html>
