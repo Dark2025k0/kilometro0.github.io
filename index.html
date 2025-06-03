@@ -18,12 +18,36 @@
       color: white;
       padding: 20px;
       text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .logo {
+      max-height: 60px;
+      vertical-align: middle;
+      animation: slideIn 1s ease-out;
+    }
+    @keyframes slideIn {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
     nav {
       display: flex;
       justify-content: center;
       gap: 30px;
       margin-top: 10px;
+      animation: fadeIn 1s ease-in 0.5s forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
     nav a {
       color: white;
@@ -127,6 +151,7 @@
 </head>
 <body>
   <header>
+    <img src="https://kilometro0-ec.github.io/assets/logo.png" alt="Logo Kilómetro Cero" class="logo">
     <h1>Kilómetro Cero</h1>
     <nav>
       <a href="#cotizador">Cotizador</a>
