@@ -1,207 +1,273 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kilometro0 - Mensajería y Pago Contra Entrega</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kilómetro Cero</title>
+  <link rel="icon" href="k0 transparente.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Estilos generales */
-    body {
-      font-family: 'Arial', sans-serif;
+    :root {
+      --negro: #0a0a0a;
+      --rojo: #ff2d2d;
+      --gris: #f1f1f1;
+      --fondo: #141414;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      color: #333;
-      line-height: 1.6;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--negro);
+      color: var(--gris);
+    }
+
+    /* HEADER */
     header {
-      background: #2c3e50;
-      color: white;
-      padding: 1rem;
+      background: radial-gradient(circle at center, #1c1c1c, #000);
       text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
     }
+
+    .logo {
+      width: 160px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      color: var(--rojo);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: var(--gris);
+    }
+
     nav {
+      background: #111;
+      position: sticky;
+      top: 0;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
       padding: 10px;
-      background: #34495e;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      z-index: 999;
     }
+
     nav a {
-      color: white;
+      color: var(--gris);
       text-decoration: none;
+      font-weight: 500;
+      position: relative;
     }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
+
+    nav a::after {
+      content: '';
+      height: 2px;
+      width: 0%;
+      background-color: var(--rojo);
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
     }
-    .btn {
-      background: #e74c3c;
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section:nth-child(even) {
+      background-color: var(--fondo);
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: var(--rojo);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 30px;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card h4 {
+      font-size: 1.3rem;
       color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .btn:hover {
-      background: #c0392b;
+      margin-bottom: 10px;
     }
 
-    /* Rastreador de envíos */
-    .tracker-box {
-      background: #f8f9fa;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 20px 0;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .tracker-box input {
-      padding: 8px;
-      width: 200px;
-      margin-right: 10px;
+    .zonas li {
+      list-style: none;
+      font-size: 1.1rem;
+      margin: 12px 0;
     }
 
-    /* Servicios */
-    .service-card {
-      background: #f9f9f9;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 15px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .service-card h3 {
-      color: #2c3e50;
-      font-size: 1.5rem;
+    .zonas li::before {
+      content: "📍";
+      margin-right: 8px;
     }
 
-    /* Testimonios */
-    #testimonios {
-      background: #e8f4fc;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .testimonial-grid {
+    form {
+      max-width: 500px;
+      margin: auto;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .testimonial {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 300px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
     }
 
-    /* WhatsApp flotante */
-    .whatsapp-float {
+    input, textarea {
+      padding: 15px;
+      background-color: #222;
+      color: white;
+      border: 1px solid #333;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .btn {
+      background: var(--rojo);
+      border: none;
+      color: white;
+      padding: 14px 36px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 0 10px var(--rojo);
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #c70000;
+    }
+
+    footer {
+      background: #0a0a0a;
+      color: #aaa;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+    }
+
+    /* Botón WhatsApp */
+    .whatsapp {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
+      background-color: #25d366;
+      color: white;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
+      padding: 15px;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      text-decoration: none;
+      z-index: 999;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      nav { gap: 10px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kilometro0</h1>
-    <p>Logística de última milla y pago contra entrega</p>
+
+  <header id="inicio">
+    <img src="k0 transparente.png" alt="Logo Kilómetro Cero" class="logo">
+    <h1>KILÓMETRO CERO</h1>
+    <h2>"Entregas eficientes para un mundo conectado."</h2>
   </header>
 
   <nav>
     <a href="#servicios">Servicios</a>
-    <a href="#como-funciona">¿Cómo funciona?</a>
+    <a href="#zonas">Cobertura</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
-  <div class="container">
-    <!-- Rastreador de envíos -->
-    <div class="tracker-box">
-      <h3>📦 Rastrea tu envío</h3>
-      <input type="text" id="tracking-number" placeholder="Ingresa tu número de guía">
-      <button class="btn" onclick="trackPackage()">Seguir</button>
-      <div id="tracking-result"></div>
+  <section id="servicios">
+    <h3>Servicios</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>🚚 Última milla</h4>
+        <p>Entregas seguras en tu ciudad. Quito, Ambato, Latacunga.</p>
+      </div>
+      <div class="card">
+        <h4>💰 Cobro contra entrega</h4>
+        <p>Pagos en efectivo o digitales. Control total y seguro.</p>
+      </div>
+      <div class="card">
+        <h4>📸 Confirmación visual</h4>
+        <p>Foto de entrega, ubicación y respaldo automático.</p>
+      </div>
+      <div class="card">
+        <h4>📲 WhatsApp integrado</h4>
+        <p>Seguimiento y comunicación automatizada 24/7.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Servicios -->
-    <section id="servicios">
-      <h2>Nuestros Servicios</h2>
-      
-      <div class="service-card">
-        <h3>🚚 Última Milla</h3>
-        <p>Entregas rápidas en la ciudad con seguimiento en tiempo real.</p>
-      </div>
+  <section id="zonas">
+    <h3>Zonas de Cobertura</h3>
+    <ul class="zonas">
+      <li>Quito</li>
+      <li>Latacunga</li>
+      <li>Ambato</li>
+      <li>Valles y zonas aledañas</li>
+      <li>Expansión bajo demanda</li>
+    </ul>
+  </section>
 
-      <div class="service-card">
-        <h3>💵 Pago Contra Entrega</h3>
-        <p>Recibe el pago de tus ventas al momento de la entrega:</p>
-        <ul>
-          <li>1. <strong>Programas el envío</strong> y seleccionas "cobranza".</li>
-          <li>2. Nuestro repartidor <strong>cobra al destinatario</strong> (efectivo o transferencia).</li>
-          <li>3. <strong>Te transferimos el dinero</strong> (menos 5% de comisión) en 24 horas.</li>
-        </ul>
-      </div>
-    </section>
+  <section id="contacto">
+    <h3>Contáctanos</h3>
+    <form>
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="email" placeholder="Correo electrónico" required />
+      <textarea rows="5" placeholder="Tu mensaje..." required></textarea>
+      <button type="submit" class="btn">Enviar mensaje</button>
+    </form>
+  </section>
 
-    <!-- Testimonios -->
-    <section id="testimonios">
-      <h2>Lo que dicen nuestros clientes</h2>
-      <div class="testimonial-grid">
-        <div class="testimonial">
-          <p>“¡Entregas rápidas y el pago contra entrega me salvó con mis ventas!”</p>
-          <span>- Juan Pérez, Tienda XYZ</span>
-        </div>
-        <div class="testimonial">
-          <p>“Confiable y siempre puntual. Lo recomiendo 100%.”</p>
-          <span>- María Gómez, EcoModa</span>
-        </div>
-      </div>
-    </section>
-  </div>
+  <footer>
+    &copy; 2025 Kilómetro Cero. Todos los derechos reservados.
+  </footer>
 
   <!-- WhatsApp flotante -->
-  <a href="https://wa.me/593XXXXXXXXX?text=Hola,%20quiero%20más%20info%20sobre%20envíos" class="whatsapp-float">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35" height="35">
-  </a>
+  <a class="whatsapp" href="https://wa.me/593XXXXXXXXX" target="_blank" title="Contáctanos por WhatsApp">💬</a>
 
-  <script>
-    // Rastreador de envíos (simulación)
-    function trackPackage() {
-      const trackingNumber = document.getElementById('tracking-number').value;
-      const fakeTrackingData = {
-        "ABC123": { status: "En camino", location: "Quito, sector norte", estimated: "Hoy 15:00" },
-        "XYZ789": { status: "Entregado", location: "Guayaquil", deliveredAt: "10/06/2024" }
-      };
-
-      const resultDiv = document.getElementById('tracking-result');
-      
-      if (fakeTrackingData[trackingNumber]) {
-        const pkg = fakeTrackingData[trackingNumber];
-        resultDiv.innerHTML = `
-          <p><strong>Estado:</strong> ${pkg.status}</p>
-          <p><strong>Ubicación:</strong> ${pkg.location}</p>
-          ${pkg.estimated ? `<p><strong>Entrega estimada:</strong> ${pkg.estimated}</p>` : ''}
-        `;
-      } else {
-        resultDiv.innerHTML = "<p>⚠️ No encontramos este número. Verifícalo.</p>";
-      }
-    }
-
-    // Ejemplo de función para WhatsApp
-    function openWhatsApp() {
-      window.open('https://wa.me/593XXXXXXXXX?text=Hola,%20quiero%20info%20sobre%20pago%20contra%20entrega', '_blank');
-    }
-  </script>
 </body>
 </html>
