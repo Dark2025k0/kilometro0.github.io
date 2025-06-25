@@ -9,10 +9,10 @@
 
   <style>
     :root {
-      --negro: #0a0a0a;
-      --rojo: #ff2d2d;
-      --gris: #f1f1f1;
-      --fondo: #141414;
+      --negro: #000000;
+      --rojo: #ff1e1e;
+      --gris-claro: #eeeeee;
+      --gris-oscuro: #1a1a1a;
     }
 
     * {
@@ -25,115 +25,125 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--negro);
-      color: var(--gris);
+      color: var(--gris-claro);
     }
 
-    /* HEADER */
     header {
-      background: radial-gradient(circle at center, #1c1c1c, #000);
       text-align: center;
-      padding: 100px 20px 60px;
-      position: relative;
+      padding: 60px 20px 40px;
+      background: linear-gradient(to bottom, var(--negro), var(--gris-oscuro));
     }
 
     .logo {
-      width: 160px;
+      width: 180px;
       margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 3.2rem;
+      font-size: 3rem;
       color: var(--rojo);
       margin-bottom: 10px;
+      letter-spacing: 2px;
     }
 
     h2 {
       font-style: italic;
       font-weight: 300;
-      font-size: 1.2rem;
-      color: var(--gris);
+      color: var(--gris-claro);
+      margin-bottom: 30px;
     }
 
     nav {
-      background: #111;
-      position: sticky;
-      top: 0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      z-index: 999;
+      margin-bottom: 30px;
     }
 
     nav a {
-      color: var(--gris);
+      color: var(--gris-claro);
       text-decoration: none;
+      margin: 0 18px;
       font-weight: 500;
       position: relative;
     }
 
     nav a::after {
       content: '';
+      display: block;
+      width: 0;
       height: 2px;
-      width: 0%;
-      background-color: var(--rojo);
+      background: var(--rojo);
+      transition: width 0.3s;
       position: absolute;
+      bottom: -4px;
       left: 0;
-      bottom: -5px;
-      transition: width 0.3s ease;
     }
 
     nav a:hover::after {
       width: 100%;
     }
 
+    .btn {
+      background: var(--rojo);
+      border: none;
+      color: #fff;
+      padding: 14px 36px;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 0 12px var(--rojo);
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #c30000;
+    }
+
     section {
-      padding: 60px 20px;
+      padding: 70px 20px;
       text-align: center;
     }
 
     section:nth-child(even) {
-      background-color: var(--fondo);
+      background-color: var(--gris-oscuro);
     }
 
     h3 {
-      font-size: 2rem;
-      margin-bottom: 40px;
+      font-size: 2.2rem;
       color: var(--rojo);
+      margin-bottom: 30px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
       max-width: 1000px;
       margin: auto;
     }
 
     .card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: #222;
+      padding: 30px 20px;
       border-radius: 15px;
-      padding: 30px;
-      backdrop-filter: blur(8px);
+      border: 1px solid #333;
+      box-shadow: 0 0 10px rgba(255, 30, 30, 0.1);
       transition: transform 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
     }
 
     .card h4 {
-      font-size: 1.3rem;
-      color: white;
+      font-size: 1.2rem;
       margin-bottom: 10px;
+      color: #fff;
     }
 
     .zonas li {
       list-style: none;
       font-size: 1.1rem;
-      margin: 12px 0;
+      margin: 10px 0;
     }
 
     .zonas li::before {
@@ -151,107 +161,79 @@
     }
 
     input, textarea {
-      padding: 15px;
-      background-color: #222;
-      color: white;
+      padding: 14px;
+      background-color: #111;
+      color: #fff;
       border: 1px solid #333;
       border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    .btn {
-      background: var(--rojo);
-      border: none;
-      color: white;
-      padding: 14px 36px;
-      font-size: 1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      margin-top: 10px;
-      box-shadow: 0 0 10px var(--rojo);
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #c70000;
+      resize: none;
     }
 
     footer {
-      background: #0a0a0a;
-      color: #aaa;
-      text-align: center;
-      padding: 25px;
+      background: #111;
+      color: #888;
       font-size: 0.9rem;
-    }
-
-    /* Botón WhatsApp */
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      padding: 15px;
-      font-size: 24px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      text-decoration: none;
-      z-index: 999;
+      text-align: center;
+      padding: 20px;
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      nav { gap: 10px; }
+      h1 { font-size: 2.3rem; }
+      nav a { margin: 0 10px; font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header id="inicio">
     <img src="k0 transparente.png" alt="Logo Kilómetro Cero" class="logo">
     <h1>KILÓMETRO CERO</h1>
     <h2>"Entregas eficientes para un mundo conectado."</h2>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#zonas">Cobertura</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="btn" onclick="document.getElementById('contacto').scrollIntoView()">Contáctanos</button>
   </header>
 
-  <nav>
-    <a href="#servicios">Servicios</a>
-    <a href="#zonas">Cobertura</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
+  <!-- SERVICIOS -->
   <section id="servicios">
-    <h3>Servicios</h3>
+    <h3>Nuestros Servicios</h3>
     <div class="grid">
       <div class="card">
         <h4>🚚 Última milla</h4>
-        <p>Entregas seguras en tu ciudad. Quito, Ambato, Latacunga.</p>
+        <p>Entregas rápidas y seguras en tu ciudad, con cobertura precisa.</p>
       </div>
       <div class="card">
         <h4>💰 Cobro contra entrega</h4>
-        <p>Pagos en efectivo o digitales. Control total y seguro.</p>
+        <p>Recaudación confiable en efectivo o digital, con control total.</p>
       </div>
       <div class="card">
-        <h4>📸 Confirmación visual</h4>
-        <p>Foto de entrega, ubicación y respaldo automático.</p>
+        <h4>📸 Confirmación con foto</h4>
+        <p>Verificación visual de entrega, para mayor seguridad.</p>
       </div>
       <div class="card">
-        <h4>📲 WhatsApp integrado</h4>
-        <p>Seguimiento y comunicación automatizada 24/7.</p>
+        <h4>📲 WhatsApp conectado</h4>
+        <p>Seguimiento, soporte y comunicación directa.</p>
       </div>
     </div>
   </section>
 
+  <!-- ZONAS -->
   <section id="zonas">
     <h3>Zonas de Cobertura</h3>
     <ul class="zonas">
       <li>Quito</li>
       <li>Latacunga</li>
       <li>Ambato</li>
-      <li>Valles y zonas aledañas</li>
+      <li>Valles y alrededores</li>
       <li>Expansión bajo demanda</li>
     </ul>
   </section>
 
+  <!-- CONTACTO -->
   <section id="contacto">
     <h3>Contáctanos</h3>
     <form>
@@ -262,12 +244,10 @@
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     &copy; 2025 Kilómetro Cero. Todos los derechos reservados.
   </footer>
-
-  <!-- WhatsApp flotante -->
-  <a class="whatsapp" href="https://wa.me/593XXXXXXXXX" target="_blank" title="Contáctanos por WhatsApp">💬</a>
 
 </body>
 </html>
