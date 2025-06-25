@@ -1,139 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kilómetro 0 - Tienda</title>
-  <link rel="icon" href="favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kilómetro Cero</title>
+  <link rel="icon" type="image/png" href="k0 negro.png">
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    header {
-      background-color: #1c2833;
-      color: #fff;
-      padding: 40px 20px;
+      background-color: #000;
+      color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
       text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 1.1rem;
-      color: #ccc;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 30px auto;
       padding: 20px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    img.logo {
+      width: 200px;
+      max-width: 80%;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      color: #ff0000;
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
     }
 
     h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 8px;
-      margin-top: 0;
+      color: #ccc;
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 30px;
+      font-style: italic;
     }
 
-    .product {
-      padding: 15px;
-      margin: 15px 0;
-      border: 1px solid #e0e0e0;
-      border-radius: 10px;
-      background-color: #fefefe;
-      transition: transform 0.2s ease;
-    }
-
-    .product:hover {
-      transform: scale(1.02);
-    }
-
-    .contact {
-      margin-top: 30px;
-    }
-
-    .whatsapp {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #25D366;
-      color: white;
-      font-weight: bold;
-      font-size: 1.1rem;
-      text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 8px;
-      margin-top: 20px;
+    .btn {
+      background-color: #ff0000;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
-    .whatsapp:hover {
-      background-color: #1ebe5d;
+    .btn:hover {
+      background-color: #cc0000;
     }
 
-    .whatsapp svg {
-      margin-right: 10px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .product {
-        padding: 12px;
-      }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      color: #666;
+      font-size: 0.8rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kilómetro 0</h1>
-    <p>Productos locales y sustentables</p>
-  </header>
-
-  <div class="container">
-    <h2>Productos destacados</h2>
-    <div class="product">
-      <strong>Yerba Mate Orgánica</strong><br>
-      1kg – $2.000
-    </div>
-    <div class="product">
-      <strong>Miel pura de abejas</strong><br>
-      500g – $1.200
-    </div>
-    <div class="product">
-      <strong>Verduras frescas de estación</strong><br>
-      Precio según disponibilidad
-    </div>
-
-    <div class="contact">
-      <h2>Contacto</h2>
-      <p>📍 Calle Falsa 123, Tu Ciudad</p>
-      <p>📞 +54 9 11 1234-5678</p>
-
-      <a class="whatsapp" href="https://wa.me/5491112345678" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-          <path d="M12 0C5.373 0 0 5.373 0 12a11.964 11.964 0 0 0 1.671 6.055L0 24l6.199-1.626A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.125c-1.775 0-3.466-.472-4.938-1.338l-.354-.209-3.684.966.983-3.59-.228-.369A9.985 9.985 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.518-7.44c-.303-.151-1.794-.885-2.073-.985-.279-.1-.483-.15-.688.15s-.788.985-.966 1.188c-.177.2-.354.224-.657.075-.303-.15-1.278-.472-2.436-1.505-.9-.803-1.507-1.794-1.683-2.096-.177-.3-.02-.462.13-.612.133-.132.296-.354.444-.531.15-.177.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.688-1.653-.944-2.26-.25-.6-.503-.518-.688-.518-.178 0-.375-.025-.576-.025s-.525.075-.8.375c-.273.3-1.04 1.015-1.04 2.48 0 1.465 1.066 2.88 1.214 3.075.15.2 2.1 3.2 5.075 4.485.709.306 1.262.487 1.694.624.712.228 1.36.195 1.87.118.57-.085 1.794-.73 2.05-1.438.253-.709.253-1.317.177-1.437-.075-.118-.278-.194-.58-.344z"/>
-        </svg>
-        Hacer pedido por WhatsApp
-      </a>
-    </div>
-  </div>
-</body>
-</html>
+  <img src="k0 negro.png"
