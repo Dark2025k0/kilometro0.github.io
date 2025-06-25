@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kilómetro Cero</title>
   <link rel="icon" href="k0 negro.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --negro: #000;
-      --rojo: #ff0000;
-      --gris: #cccccc;
+      --negro: #0a0a0a;
+      --rojo: #ff1e1e;
+      --gris: #d1d1d1;
+      --fondo-claro: #1c1c1c;
     }
 
     * {
@@ -20,39 +22,31 @@
     }
 
     body {
-      background-color: var(--negro);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, var(--negro), #141414);
       color: var(--gris);
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
-    }
-
-    header, section {
-      padding: 60px 20px;
-      text-align: center;
     }
 
     header {
-      background-color: var(--negro);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      text-align: center;
+      padding: 80px 20px 40px;
     }
 
-    img.logo {
+    .logo {
       width: 180px;
-      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in;
     }
 
     h1 {
-      color: var(--rojo);
       font-size: 3rem;
-      letter-spacing: 1px;
+      color: var(--rojo);
+      margin-top: 10px;
+      letter-spacing: 2px;
     }
 
     h2 {
-      font-size: 1.2rem;
       font-style: italic;
+      font-weight: 300;
       color: var(--gris);
       margin-bottom: 20px;
     }
@@ -64,47 +58,93 @@
     nav a {
       color: var(--gris);
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
+      margin: 0 20px;
+      font-weight: 500;
+      position: relative;
     }
 
-    nav a:hover {
-      color: var(--rojo);
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--rojo);
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .btn {
-      background-color: var(--rojo);
-      color: #fff;
-      padding: 12px 24px;
+      margin-top: 30px;
+      background: var(--rojo);
       border: none;
+      color: white;
+      padding: 12px 32px;
       border-radius: 30px;
       font-size: 1rem;
       cursor: pointer;
-      margin-top: 20px;
+      transition: background 0.3s;
     }
 
-    section h3 {
-      color: var(--rojo);
-      margin-bottom: 20px;
+    .btn:hover {
+      background: #c40000;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section:nth-child(even) {
+      background-color: var(--fondo-claro);
+    }
+
+    h3 {
       font-size: 2rem;
-    }
-
-    .servicios, .zonas {
-      max-width: 800px;
-      margin: auto;
-      text-align: left;
-    }
-
-    .servicios ul, .zonas ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .servicios li::before, .zonas li::before {
-      content: "✓";
       color: var(--rojo);
-      margin-right: 10px;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #121212;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #2a2a2a;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h4 {
+      color: var(--gris);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .zonas li {
+      list-style: none;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .zonas li::before {
+      content: "🧭";
+      margin-right: 8px;
     }
 
     form {
@@ -113,35 +153,41 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+      margin-top: 30px;
     }
 
     input, textarea {
-      padding: 12px;
+      background-color: #1c1c1c;
       border: 1px solid #444;
+      padding: 12px;
+      color: white;
       border-radius: 5px;
-      background: #111;
-      color: #fff;
     }
 
     footer {
-      background-color: #111;
-      padding: 20px;
+      background-color: #0a0a0a;
       text-align: center;
+      padding: 20px;
       font-size: 0.9rem;
       color: #666;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
     @media (max-width: 600px) {
       h1 { font-size: 2.2rem; }
-      h3 { font-size: 1.5rem; }
+      nav a { margin: 0 10px; font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- INICIO -->
+  <!-- ENCABEZADO -->
   <header id="inicio">
-    <img src="k0 negro.png" alt="Logo Kilómetro Cero" class="logo" />
+    <img src="k0 negro.png" alt="Logo Kilómetro Cero" class="logo">
     <h1>KILÓMETRO CERO</h1>
     <h2>"Entregas eficientes para un mundo conectado."</h2>
     <nav>
@@ -155,29 +201,36 @@
   <!-- SERVICIOS -->
   <section id="servicios">
     <h3>Servicios</h3>
-    <div class="servicios">
-      <ul>
-        <li>Entrega de paquetería de última milla</li>
-        <li>Cobro de valores contra entrega (efectivo o digital)</li>
-        <li>Asignación de pedidos por ciudad y zona</li>
-        <li>Confirmación de entrega con fotografía</li>
-        <li>Integración con WhatsApp para seguimiento</li>
-      </ul>
+    <div class="grid">
+      <div class="card">
+        <h4>🚚 Entregas última milla</h4>
+        <p>Logística local rápida y eficiente, adaptada a tu ciudad.</p>
+      </div>
+      <div class="card">
+        <h4>💰 Cobro contra entrega</h4>
+        <p>Recaudamos valores en efectivo o con medios digitales.</p>
+      </div>
+      <div class="card">
+        <h4>📸 Confirmación con foto</h4>
+        <p>Registro visual de cada entrega para más seguridad.</p>
+      </div>
+      <div class="card">
+        <h4>📲 Soporte por WhatsApp</h4>
+        <p>Asistencia directa y seguimiento de pedidos en tiempo real.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ZONAS DE COBERTURA -->
+  <!-- COBERTURA -->
   <section id="zonas">
     <h3>Zonas de Cobertura</h3>
-    <div class="zonas">
-      <ul>
-        <li>Quito</li>
-        <li>Latacunga</li>
-        <li>Ambato</li>
-        <li>Valles cercanos</li>
-        <li>Expansión bajo demanda</li>
-      </ul>
-    </div>
+    <ul class="zonas">
+      <li>Quito</li>
+      <li>Latacunga</li>
+      <li>Ambato</li>
+      <li>Valles y zonas cercanas</li>
+      <li>Expansión bajo demanda</li>
+    </ul>
   </section>
 
   <!-- CONTACTO -->
@@ -186,12 +239,12 @@
     <form>
       <input type="text" placeholder="Nombre" required />
       <input type="email" placeholder="Correo electrónico" required />
-      <textarea rows="5" placeholder="Mensaje" required></textarea>
-      <button class="btn" type="submit">Enviar mensaje</button>
+      <textarea rows="5" placeholder="Tu mensaje..." required></textarea>
+      <button type="submit" class="btn">Enviar mensaje</button>
     </form>
   </section>
 
-  <!-- PIE DE PÁGINA -->
+  <!-- FOOTER -->
   <footer>
     &copy; 2025 Kilómetro Cero. Todos los derechos reservados.
   </footer>
