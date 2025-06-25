@@ -1,130 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kilómetro Cero - Mensajería Premium en Ecuador</title>
-  <link rel="icon" href="k0 transparente.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --negro: #000000;
-      --rojo: #ff1e1e;
-      --gris-claro: #f5f5f5;
-      --gris-medio: #cccccc;
-      --gris-oscuro: #1a1a1a;
-      --gris-cobertura: #e0e0e0; /* Gris más claro para cobertura */
-    }
-
-    /* [Estilos anteriores se mantienen igual...] */
-
-    /* Nuevos estilos para la sección de cobertura */
-    .cobertura-container {
-      max-width: 900px;
-      margin: 40px auto;
-      position: relative;
-    }
-
-    .mapa-cobertura {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      border: 2px solid var(--rojo);
-    }
-
-    .growth-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 30, 30, 0.9);
-      color: white;
-      padding: 12px 15px;
-      border-radius: 50px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      animation: pulseGrowth 2s infinite;
-      z-index: 2;
-    }
-
-    @keyframes pulseGrowth {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0.7); }
-      50% { transform: scale(1.05); }
-      70% { box-shadow: 0 0 0 10px rgba(255, 30, 30, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0); }
-    }
-
-    .growth-badge::after {
-      content: "⚡";
-      margin-left: 8px;
-      font-size: 1.2em;
-      animation: flash 1.5s infinite;
-    }
-
-    @keyframes flash {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    /* Animación para el logo */
-    @keyframes logoAnimation {
-      0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 30, 30, 0.5)); }
-      50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(255, 30, 30, 0.8)); }
-      100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 30, 30, 0.5)); }
-    }
-
-    .logo {
-      width: 180px;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 10px rgba(255, 30, 30, 0.5));
-      animation: logoAnimation 3s infinite;
-    }
-
-    /* [Resto de estilos se mantienen igual...] */
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPE3DARK - Facebook</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .logo {
+            width: 150px;
+            border-radius: 50%;
+            border: 3px solid #3b5998;
+        }
+        h1 {
+            color: #3b5998;
+            margin: 10px 0;
+        }
+        .description {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3b5998;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2d4373;
+        }
+        .social-links {
+            margin-top: 30px;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <!-- Reemplaza con tu logo o imagen de perfil -->
+            <img src="https://via.placeholder.com/150" alt="IPE3DARK Logo" class="logo">
+            <h1>IPE3DARK</h1>
+            <p>¡Sígueme en Facebook para más contenido!</p>
+        </div>
 
-  <!-- [Header y otras secciones se mantienen igual...] -->
+        <div class="description">
+            <p>Bienvenido/a a la página oficial de IPE3DARK en Facebook. Aquí encontrarás contenido exclusivo, actualizaciones y mucho más.</p>
+            <p>¡No olvides darle "Me gusta" y seguir mi página para estar al tanto de todas las novedades!</p>
+        </div>
 
-  <!-- ZONAS - Sección actualizada con mapa interactivo -->
-  <section id="zonas">
-    <h3>Cobertura en Quito</h3>
-    
-    <div class="cobertura-container">
-      <div class="growth-badge">CRECIMIENTO 98%</div>
-      <iframe src="https://www.google.com/maps/d/embed?mid=1rue098ufi3My-VkT-NEtVKMx-LBL4RA&hl=es&ehbc=2E312F" 
-              class="mapa-cobertura"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy">
-      </iframe>
+        <a href="https://www.facebook.com/ipe3dark/" class="btn" target="_blank">Visitar página de Facebook</a>
+
+        <div class="social-links">
+            <!-- Puedes agregar más redes sociales si es necesario -->
+            <p>También puedes encontrarme en:</p>
+            <a href="#" class="btn">Instagram</a>
+            <a href="#" class="btn">Twitter</a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2023 IPE3DARK. Todos los derechos reservados.</p>
+        </div>
     </div>
-
-    <ul class="zonas" style="margin-top: 30px;">
-      <li><strong>Área Metropolitana:</strong> Cobertura completa con eficiencia del 98%</li>
-      <li><strong>Zonas destacadas:</strong> Centro Histórico, Norte, Sur, Valles</li>
-      <li><strong>Expansión continua:</strong> Nuevas áreas agregadas mensualmente</li>
-    </ul>
-
-    <p style="margin-top: 20px; color: var(--gris-medio);">
-      <button class="btn btn-outline" onclick="openWhatsApp('cobertura en Quito')">Consulta tu sector</button>
-    </p>
-  </section>
-
-  <!-- [Resto del código se mantiene igual...] -->
-
-  <script>
-    // [Scripts anteriores se mantienen igual...]
-
-    // Animación adicional para el badge de crecimiento
-    document.querySelector('.growth-badge').addEventListener('mouseover', function() {
-      this.style.animation = 'pulseGrowth 0.8s infinite, flash 0.8s infinite';
-    });
-
-    document.querySelector('.growth-badge').addEventListener('mouseout', function() {
-      this.style.animation = 'pulseGrowth 2s infinite, flash 1.5s infinite';
-    });
-  </script>
 </body>
 </html>
