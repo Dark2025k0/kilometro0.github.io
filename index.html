@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kilómetro Cero</title>
-  <link rel="icon" href="k0 negro.png" type="image/png"/>
+  <link rel="icon" href="k0 transparente.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --negro: #0a0a0a;
+      --negro: #000000;
       --rojo: #ff1e1e;
-      --gris: #d1d1d1;
-      --fondo-claro: #1c1c1c;
+      --gris: #cfcfcf;
+      --fondo: #111111;
+      --secundario: #1c1c1c;
     }
 
     * {
@@ -23,42 +25,39 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, var(--negro), #141414);
+      background: linear-gradient(to bottom, var(--negro), var(--secundario));
       color: var(--gris);
     }
 
     header {
+      background: url('k0 transparente.png') no-repeat center top;
+      background-size: 150px;
+      padding: 160px 20px 80px;
       text-align: center;
-      padding: 80px 20px 40px;
-    }
-
-    .logo {
-      width: 180px;
-      animation: fadeIn 1.5s ease-in;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       color: var(--rojo);
-      margin-top: 10px;
-      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 10px #000;
     }
 
     h2 {
+      font-size: 1.3rem;
       font-style: italic;
-      font-weight: 300;
       color: var(--gris);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     nav {
-      margin-top: 20px;
+      margin-bottom: 30px;
     }
 
     nav a {
       color: var(--gris);
       text-decoration: none;
-      margin: 0 20px;
+      margin: 0 18px;
       font-weight: 500;
       position: relative;
     }
@@ -80,70 +79,72 @@
     }
 
     .btn {
-      margin-top: 30px;
       background: var(--rojo);
       border: none;
-      color: white;
-      padding: 12px 32px;
-      border-radius: 30px;
+      color: #fff;
+      padding: 14px 36px;
       font-size: 1rem;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background 0.3s;
+      box-shadow: 0 0 10px var(--rojo);
+      transition: background 0.3s ease;
     }
 
     .btn:hover {
-      background: #c40000;
+      background: #c30000;
     }
 
     section {
-      padding: 60px 20px;
+      padding: 70px 20px;
       text-align: center;
     }
 
     section:nth-child(even) {
-      background-color: var(--fondo-claro);
+      background-color: var(--fondo);
     }
 
     h3 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--rojo);
       margin-bottom: 30px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
       max-width: 1000px;
       margin: auto;
     }
 
     .card {
-      background-color: #121212;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #2a2a2a;
-      transition: transform 0.3s;
+      background: #181818;
+      padding: 30px 20px;
+      border-radius: 15px;
+      border: 1px solid #2e2e2e;
+      box-shadow: 0 0 15px rgba(255, 30, 30, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(255, 30, 30, 0.3);
     }
 
     .card h4 {
-      color: var(--gris);
-      font-size: 1.1rem;
+      color: #fff;
+      font-size: 1.2rem;
       margin-bottom: 10px;
     }
 
     .zonas li {
       list-style: none;
-      margin-bottom: 10px;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      margin: 10px 0;
     }
 
     .zonas li::before {
-      content: "🧭";
+      content: "📍";
       margin-right: 8px;
     }
 
@@ -157,28 +158,24 @@
     }
 
     input, textarea {
+      padding: 14px;
       background-color: #1c1c1c;
-      border: 1px solid #444;
-      padding: 12px;
-      color: white;
-      border-radius: 5px;
+      color: #fff;
+      border: 1px solid #333;
+      border-radius: 8px;
+      resize: none;
     }
 
     footer {
-      background-color: #0a0a0a;
+      background: #0a0a0a;
+      color: #777;
+      font-size: 0.9rem;
       text-align: center;
       padding: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
+      h1 { font-size: 2.5rem; }
       nav a { margin: 0 10px; font-size: 0.9rem; }
     }
   </style>
@@ -187,7 +184,6 @@
 
   <!-- ENCABEZADO -->
   <header id="inicio">
-    <img src="k0 negro.png" alt="Logo Kilómetro Cero" class="logo">
     <h1>KILÓMETRO CERO</h1>
     <h2>"Entregas eficientes para un mundo conectado."</h2>
     <nav>
@@ -200,36 +196,36 @@
 
   <!-- SERVICIOS -->
   <section id="servicios">
-    <h3>Servicios</h3>
+    <h3>Nuestros Servicios</h3>
     <div class="grid">
       <div class="card">
-        <h4>🚚 Entregas última milla</h4>
-        <p>Logística local rápida y eficiente, adaptada a tu ciudad.</p>
+        <h4>🚚 Entrega de última milla</h4>
+        <p>Conectamos tiendas con clientes en zonas clave, de forma rápida.</p>
       </div>
       <div class="card">
         <h4>💰 Cobro contra entrega</h4>
-        <p>Recaudamos valores en efectivo o con medios digitales.</p>
+        <p>Cobramos valores en efectivo o medios digitales seguros.</p>
       </div>
       <div class="card">
-        <h4>📸 Confirmación con foto</h4>
-        <p>Registro visual de cada entrega para más seguridad.</p>
+        <h4>📸 Confirmación con evidencia</h4>
+        <p>Entregas documentadas con fotografía y geolocalización.</p>
       </div>
       <div class="card">
-        <h4>📲 Soporte por WhatsApp</h4>
-        <p>Asistencia directa y seguimiento de pedidos en tiempo real.</p>
+        <h4>📲 WhatsApp automatizado</h4>
+        <p>Canal rápido para tiendas, transportistas y clientes.</p>
       </div>
     </div>
   </section>
 
-  <!-- COBERTURA -->
+  <!-- ZONAS -->
   <section id="zonas">
     <h3>Zonas de Cobertura</h3>
     <ul class="zonas">
       <li>Quito</li>
       <li>Latacunga</li>
       <li>Ambato</li>
-      <li>Valles y zonas cercanas</li>
-      <li>Expansión bajo demanda</li>
+      <li>Valles y alrededores</li>
+      <li>Zonas bajo demanda</li>
     </ul>
   </section>
 
@@ -237,9 +233,9 @@
   <section id="contacto">
     <h3>Contáctanos</h3>
     <form>
-      <input type="text" placeholder="Nombre" required />
-      <input type="email" placeholder="Correo electrónico" required />
-      <textarea rows="5" placeholder="Tu mensaje..." required></textarea>
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="email" placeholder="Tu correo electrónico" required />
+      <textarea rows="5" placeholder="Mensaje..." required></textarea>
       <button type="submit" class="btn">Enviar mensaje</button>
     </form>
   </section>
