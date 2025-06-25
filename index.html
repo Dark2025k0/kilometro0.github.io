@@ -11,9 +11,8 @@
     :root {
       --negro: #000000;
       --rojo: #ff1e1e;
-      --gris: #cfcfcf;
-      --fondo: #111111;
-      --secundario: #1c1c1c;
+      --gris-claro: #eeeeee;
+      --gris-oscuro: #1a1a1a;
     }
 
     * {
@@ -25,28 +24,32 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, var(--negro), var(--secundario));
-      color: var(--gris);
+      background-color: var(--negro);
+      color: var(--gris-claro);
     }
 
     header {
-      background: url('k0 transparente.png') no-repeat center top;
-      background-size: 150px;
-      padding: 160px 20px 80px;
       text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(to bottom, var(--negro), var(--gris-oscuro));
+    }
+
+    .logo {
+      width: 180px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       color: var(--rojo);
       margin-bottom: 10px;
-      text-shadow: 0 2px 10px #000;
+      letter-spacing: 2px;
     }
 
     h2 {
-      font-size: 1.3rem;
       font-style: italic;
-      color: var(--gris);
+      font-weight: 300;
+      color: var(--gris-claro);
       margin-bottom: 30px;
     }
 
@@ -55,7 +58,7 @@
     }
 
     nav a {
-      color: var(--gris);
+      color: var(--gris-claro);
       text-decoration: none;
       margin: 0 18px;
       font-weight: 500;
@@ -86,7 +89,8 @@
       font-size: 1rem;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 0 10px var(--rojo);
+      margin-top: 20px;
+      box-shadow: 0 0 12px var(--rojo);
       transition: background 0.3s ease;
     }
 
@@ -100,7 +104,7 @@
     }
 
     section:nth-child(even) {
-      background-color: var(--fondo);
+      background-color: var(--gris-oscuro);
     }
 
     h3 {
@@ -118,23 +122,22 @@
     }
 
     .card {
-      background: #181818;
+      background: #222;
       padding: 30px 20px;
       border-radius: 15px;
-      border: 1px solid #2e2e2e;
-      box-shadow: 0 0 15px rgba(255, 30, 30, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #333;
+      box-shadow: 0 0 10px rgba(255, 30, 30, 0.1);
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 0 25px rgba(255, 30, 30, 0.3);
     }
 
     .card h4 {
-      color: #fff;
       font-size: 1.2rem;
       margin-bottom: 10px;
+      color: #fff;
     }
 
     .zonas li {
@@ -159,7 +162,7 @@
 
     input, textarea {
       padding: 14px;
-      background-color: #1c1c1c;
+      background-color: #111;
       color: #fff;
       border: 1px solid #333;
       border-radius: 8px;
@@ -167,23 +170,24 @@
     }
 
     footer {
-      background: #0a0a0a;
-      color: #777;
+      background: #111;
+      color: #888;
       font-size: 0.9rem;
       text-align: center;
       padding: 20px;
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2.5rem; }
+      h1 { font-size: 2.3rem; }
       nav a { margin: 0 10px; font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ENCABEZADO -->
+  <!-- HEADER -->
   <header id="inicio">
+    <img src="k0 transparente.png" alt="Logo Kilómetro Cero" class="logo">
     <h1>KILÓMETRO CERO</h1>
     <h2>"Entregas eficientes para un mundo conectado."</h2>
     <nav>
@@ -199,20 +203,20 @@
     <h3>Nuestros Servicios</h3>
     <div class="grid">
       <div class="card">
-        <h4>🚚 Entrega de última milla</h4>
-        <p>Conectamos tiendas con clientes en zonas clave, de forma rápida.</p>
+        <h4>🚚 Última milla</h4>
+        <p>Entregas rápidas y seguras en tu ciudad, con cobertura precisa.</p>
       </div>
       <div class="card">
         <h4>💰 Cobro contra entrega</h4>
-        <p>Cobramos valores en efectivo o medios digitales seguros.</p>
+        <p>Recaudación confiable en efectivo o digital, con control total.</p>
       </div>
       <div class="card">
-        <h4>📸 Confirmación con evidencia</h4>
-        <p>Entregas documentadas con fotografía y geolocalización.</p>
+        <h4>📸 Confirmación con foto</h4>
+        <p>Verificación visual de entrega, para mayor seguridad.</p>
       </div>
       <div class="card">
-        <h4>📲 WhatsApp automatizado</h4>
-        <p>Canal rápido para tiendas, transportistas y clientes.</p>
+        <h4>📲 WhatsApp conectado</h4>
+        <p>Seguimiento, soporte y comunicación directa.</p>
       </div>
     </div>
   </section>
@@ -225,7 +229,7 @@
       <li>Latacunga</li>
       <li>Ambato</li>
       <li>Valles y alrededores</li>
-      <li>Zonas bajo demanda</li>
+      <li>Expansión bajo demanda</li>
     </ul>
   </section>
 
@@ -234,8 +238,8 @@
     <h3>Contáctanos</h3>
     <form>
       <input type="text" placeholder="Tu nombre" required />
-      <input type="email" placeholder="Tu correo electrónico" required />
-      <textarea rows="5" placeholder="Mensaje..." required></textarea>
+      <input type="email" placeholder="Correo electrónico" required />
+      <textarea rows="5" placeholder="Tu mensaje..." required></textarea>
       <button type="submit" class="btn">Enviar mensaje</button>
     </form>
   </section>
