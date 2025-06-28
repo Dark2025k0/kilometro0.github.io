@@ -324,4 +324,583 @@
       width: 65px;
       height: 65px;
       background: #25D366;
-      border-radius: 50%
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+      z-index: 1000;
+      transition: all 0.3s;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      animation: none;
+    }
+
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input, textarea {
+      padding: 15px;
+      background-color: #111;
+      color: var(--gris-claro);
+      border: 1px solid #444;
+      border-radius: 8px;
+      resize: none;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #777;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      color: var(--gris-medio);
+    }
+
+    .contact-info a {
+      color: var(--gris-claro);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: var(--rojo);
+    }
+
+    footer {
+      background: #111;
+      color: #777;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #333;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      background: rgba(255, 30, 30, 0.1);
+      padding: 20px 30px;
+      border-radius: 10px;
+      border: 1px solid var(--rojo);
+    }
+
+    .stat-item h4 {
+      font-size: 2.5rem;
+      color: var(--rojo);
+      margin-bottom: 5px;
+    }
+
+    /* Estilos para el servicio de correo */
+    #servicio-correo .card {
+      padding: 30px;
+    }
+
+    #servicio-correo input[type="text"] {
+      font-family: 'Poppins', sans-serif;
+      transition: border 0.3s;
+      width: 100%;
+      padding: 12px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: var(--gris-claro);
+      margin-bottom: 15px;
+    }
+
+    #servicio-correo input[type="text"]:focus {
+      outline: none;
+      border-color: var(--rojo);
+    }
+
+    #servicio-correo input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      margin-right: 10px;
+      accent-color: var(--rojo);
+    }
+
+    #servicio-correo label {
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      color: var(--gris-claro);
+      cursor: pointer;
+    }
+
+    #servicio-correo label:hover {
+      color: var(--rojo);
+    }
+
+    #servicio-correo .gmail-connection {
+      background: #111;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border: 1px solid #333;
+    }
+
+    #servicio-correo .gmail-connection p {
+      color: var(--gris-medio);
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    #servicio-correo .gmail-connection .connected-as {
+      color: var(--gris-claro);
+      font-weight: 500;
+    }
+
+    #servicio-correo .form-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    #servicio-correo .copyright {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--gris-medio);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.3rem; }
+      nav a { margin: 0 10px; font-size: 0.9rem; }
+      .tracker-box input { width: 100%; margin-bottom: 15px; }
+      .stats { gap: 15px; }
+      .stat-item { padding: 15px 20px; }
+      .stat-item h4 { font-size: 1.8rem; }
+      .mapa-cobertura { height: 300px; }
+      .growth-badge {
+        top: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+        padding: 8px 12px;
+      }
+      #servicio-correo .card {
+        padding: 20px;
+      }
+      #servicio-correo .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+      #servicio-correo .form-footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+      #servicio-correo .form-footer .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="inicio">
+    <img src="k0 transparente.png" alt="Logo Kilómetro Cero" class="logo">
+    <h1>KILÓMETRO CERO</h1>
+    <h2>"Entregas eficientes para un mundo conectado."</h2>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#rastreo">Rastreo</a>
+      <a href="#zonas">Cobertura</a>
+      <a href="#servicio-correo">Correo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="btn" onclick="document.getElementById('contacto').scrollIntoView()">Contáctanos</button>
+  </header>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h3>Nuestros Servicios</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>🚚 Última Milla</h4>
+        <p>Entregas rápidas en menos de <span class="highlight">24 horas</span> con seguimiento GPS en tiempo real y notificaciones.</p>
+      </div>
+      <div class="card">
+        <h4>💰 Pago Contra Entrega</h4>
+        <p>
+          <strong>Sistema seguro:</strong><br>
+          1. Programas el envío con cobranza<br>
+          2. Nuestro repartidor recauda<br>
+          3. Te transferimos en <span class="highlight">24 horas</span> (5% comisión)
+        </p>
+        <button class="btn btn-outline" style="margin-top: 15px;" onclick="openWhatsApp('pago contra entrega')">Detalles de cobranza</button>
+      </div>
+      <div class="card">
+        <h4>📸 Evidencia Digital</h4>
+        <p>Recibe <span class="highlight">foto geolocalizada</span> y firma digital del receptor en cada entrega.</p>
+      </div>
+      <div class="card">
+        <h4>📱 Comunicación Directa</h4>
+        <p>Soporte prioritario por <span class="highlight">WhatsApp Business</span> con respuesta en menos de 15 minutos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTADÍSTICAS -->
+  <section style="background: linear-gradient(to right, var(--negro), var(--gris-oscuro)); padding: 40px 20px;">
+    <div class="stats">
+      <div class="stat-item">
+        <h4>98%</h4>
+        <p>Tasa de efectividad<br>en entregas</p>
+      </div>
+      <div class="stat-item">
+        <h4>24h</h4>
+        <p>Tiempo promedio<br>de entrega</p>
+      </div>
+      <div class="stat-item">
+        <h4>100%</h4>
+        <p>Envíos con<br>seguimiento GPS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RASTREO -->
+  <section id="rastreo">
+    <h3>Rastrea tu Envío</h3>
+    <div class="tracker-box">
+      <input type="text" id="tracking-number" placeholder="Ej: K0-2024-ABC123">
+      <button class="btn" onclick="trackPackage()">Buscar Envío</button>
+      <div id="tracking-result"></div>
+    </div>
+  </section>
+
+  <!-- ZONAS -->
+  <section id="zonas">
+    <h3>Cobertura en Quito</h3>
+    
+    <div class="cobertura-container">
+      <div class="growth-badge">CRECIMIENTO 98%</div>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1rue098ufi3My-VkT-NEtVKMx-LBL4RA&hl=es&ehbc=2E312F" 
+              class="mapa-cobertura"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy">
+      </iframe>
+    </div>
+
+    <ul class="zonas" style="margin-top: 30px;">
+      <li><strong>Área Metropolitana:</strong> Cobertura completa con eficiencia del 98%</li>
+      <li><strong>Zonas destacadas:</strong> Centro Histórico, Norte, Sur, Valles</li>
+      <li><strong>Expansión continua:</strong> Nuevas áreas agregadas mensualmente</li>
+    </ul>
+
+    <p style="margin-top: 20px; color: var(--gris-medio);">
+      <button class="btn btn-outline" onclick="openWhatsApp('cobertura en Quito')">Consulta tu sector</button>
+    </p>
+  </section>
+
+  <!-- SERVICIO DE CORREO -->
+  <section id="servicio-correo" style="background-color: var(--gris-oscuro);">
+    <h3>Servicio de Correo Electrónico</h3>
+    <div class="card" style="max-width: 600px; margin: 0 auto;">
+      <div style="display: flex; align-items: center; margin-bottom: 20px; padding: 15px; background: rgba(255,30,30,0.1); border-radius: 8px;">
+        <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="Gmail Logo" style="width: 40px; margin-right: 15px;">
+        <div>
+          <h4 style="color: var(--gris-claro); margin-bottom: 5px;">Gmail</h4>
+          <p style="color: var(--gris-medio); font-size: 0.9rem;">Servicio Personalizado | 500 correos electrónicos por día 😊</p>
+        </div>
+      </div>
+      
+      <form id="email-service-form">
+        <label>
+          Nombre *
+          <input type="text" placeholder="Kilómetro Cero" required>
+        </label>
+        
+        <label>
+          ID de servicio *
+          <input type="text" placeholder="service_x8sd13t" required>
+        </label>
+        
+        <div class="gmail-connection">
+          <p>Conexión de Gmail</p>
+          <p class="connected-as">Conectado como kilometro0ec@gmail.com</p>
+          <button type="button" class="btn btn-outline" style="width: 100%; margin-top: 10px;">Desconectar</button>
+        </div>
+        
+        <p style="color: var(--gris-medio); font-size: 0.9rem; margin-bottom: 15px;">
+          Permitir el permiso "Enviar correo electrónico en su nombre" durante la conexión.<br>
+          Se admiten cuentas de Gmail y Google Apps.
+        </p>
+        
+        <label>
+          <input type="checkbox" checked>
+          Enviar correo electrónico de prueba para verificar la configuración
+        </label>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-outline" id="cancel-btn">Cancelar</button>
+          <button type="submit" class="btn">Guardar Configuración</button>
+        </div>
+        
+        <p class="copyright">© Servicio de actualización</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" style="background: linear-gradient(to bottom, var(--gris-oscuro), var(--negro));">
+    <h3>¿Por Qué Elegirnos?</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>🔝 Efectividad del 98%</h4>
+        <p>La mayor tasa de entregas exitosas en el mercado, respaldada por datos reales.</p>
+      </div>
+      <div class="card">
+        <h4>🛡️ Seguridad Garantizada</h4>
+        <p>Repartidores verificados y protocolos estrictos para proteger tus envíos.</p>
+      </div>
+      <div class="card">
+        <h4>💡 Tecnología Propia</h4>
+        <p>Plataforma desarrollada localmente para adaptarse a tus necesidades.</p>
+      </div>
+      <div class="card">
+        <h4>🤝 Enfoque Personalizado</h4>
+        <p>Soluciones logísticas diseñadas para cada tipo de negocio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <h3>Lo Que Dicen Nuestros Clientes</h3>
+    <div class="grid">
+      <div class="testimonial">
+        <p>"El servicio de pago contra entrega revolucionó mi negocio. Ahora mis clientes pagan al recibir y Kilómetro Cero me transfiere al día siguiente sin problemas."</p>
+        <span>- Luisa M., Tienda Online de Moda</span>
+      </div>
+      <div class="testimonial">
+        <p>"Con una efectividad del 98%, es el único servicio que cumple. Las fotos con geolocalización me dan tranquilidad absoluta."</p>
+        <span>- Roberto C., Distribuidor de Electrónicos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h3>Contacto</h3>
+    <form id="contact-form">
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="tel" placeholder="Teléfono (opcional)">
+      <textarea rows="5" placeholder="Cuéntanos sobre tus necesidades logísticas..." required></textarea>
+      <button type="submit" class="btn">Enviar Mensaje</button>
+    </form>
+    
+    <div class="contact-info">
+      <p>O contáctanos directamente:</p>
+      <p>
+        <a href="mailto:kilometro0ec@gmail.com">✉️ kilometro0ec@gmail.com</a><br>
+        <a href="tel:+593984116019">📞 +593 98 411 6019</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/593984116019?text=Hola%20Kilómetro%20Cero,%20necesito%20información%20sobre%20sus%20servicios" class="whatsapp-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Kilómetro Cero. Todos los derechos reservados.</p>
+    <p style="margin-top: 10px;">Logística de última milla con tecnología ecuatoriana.</p>
+  </footer>
+
+  <script>
+    // Rastreador de envíos (simulación mejorada)
+    function trackPackage() {
+      const trackingNumber = document.getElementById('tracking-number').value.trim().toUpperCase();
+      const fakeTrackingData = {
+        "K0-2024": { 
+          status: "🚚 En reparto", 
+          location: "Quito, sector norte", 
+          estimated: "Hoy hasta las 18:00",
+          steps: [
+            { time: "10:30 AM", event: "Recolección completada", details: "Paquete recibido en nuestro centro" },
+            { time: "12:15 PM", event: "En centro de distribución", details: "Preparando para entrega final" },
+            { time: "15:00 PM", event: "En ruta de entrega", details: "Repartidor: Carlos Pérez - Contacto: 0991234567" }
+          ],
+          note: "El receptor recibirá notificación 30 mins antes"
+        },
+        "K0-5678": { 
+          status: "✅ Entregado", 
+          location: "Valle de los Chillos", 
+          deliveredAt: "05/06/2024 a las 14:30",
+          receiver: "María Gómez (Firma digital verificada)",
+          payment: "$45.00 cobrados (transferidos a cliente)",
+          photo: "evidencia-05-06-2024.jpg"
+        }
+      };
+
+      const resultDiv = document.getElementById('tracking-result');
+      
+      if (fakeTrackingData[trackingNumber]) {
+        const pkg = fakeTrackingData[trackingNumber];
+        let html = `
+          <h4 style="color: var(--rojo); margin-bottom: 15px;">Envío ${trackingNumber}</h4>
+          <p><strong>Estado:</strong> <span style="color: ${pkg.status.includes('✅') ? '#2ecc71' : '#f39c12'}">${pkg.status}</span></p>
+          <p><strong>Ubicación:</strong> ${pkg.location}</p>
+        `;
+        
+        if (pkg.estimated) {
+          html += `
+            <p><strong>Entrega estimada:</strong> ${pkg.estimated}</p>
+            <div style="margin-top: 20px; background: #222; padding: 15px; border-radius: 8px;">
+              <h5 style="color: var(--gris-medio); margin-bottom: 10px;">📋 Historial del envío:</h5>
+              <ul style="margin-left: 20px;">
+          `;
+          pkg.steps.forEach(step => {
+            html += `
+              <li style="margin-bottom: 10px;">
+                <strong>${step.time}:</strong> ${step.event}
+                ${step.details ? `<br><small style="color: var(--gris-medio);">${step.details}</small>` : ''}
+              </li>
+            `;
+          });
+          html += `
+              </ul>
+              ${pkg.note ? `<p style="margin-top: 10px; font-size: 0.9em;"><small>📌 ${pkg.note}</small></p>` : ''}
+            </div>
+          `;
+        } else {
+          html += `
+            <p><strong>Entregado el:</strong> ${pkg.deliveredAt}</p>
+            <p><strong>Recibió:</strong> ${pkg.receiver}</p>
+            ${pkg.payment ? `<p><strong>Cobranza:</strong> ${pkg.payment}</p>` : ''}
+            ${pkg.photo ? `<p><strong>Evidencia:</strong> <a href="#" style="color: var(--rojo);">Ver foto de entrega</a></p>` : ''}
+          `;
+        }
+        
+        resultDiv.innerHTML = html;
+      } else if (trackingNumber === "") {
+        resultDiv.innerHTML = `<p style="color: var(--gris-medio);">🔍 Por favor ingresa tu número de guía (ej: K0-2024-ABC123)</p>`;
+      } else {
+        resultDiv.innerHTML = `
+          <p>⚠️ No encontramos el envío <strong>${trackingNumber}</strong>.</p>
+          <p style="margin-top: 10px;">Verifica el número o <a href="#contacto" style="color: var(--rojo);">contáctanos</a> para asistencia.</p>
+        `;
+      }
+    }
+
+    // WhatsApp con mensaje personalizado
+    function openWhatsApp(topic) {
+      const message = `Hola Kilómetro Cero, necesito información sobre: ${topic || 'sus servicios'}`;
+      window.open(`https://wa.me/593984116019?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    // Envío de formulario de contacto
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('📩 Gracias por tu mensaje. Nos contactaremos contigo en menos de 2 horas hábiles.');
+      this.reset();
+      
+      setTimeout(() => {
+        console.log("Datos del formulario enviados al servidor");
+      }, 1000);
+    });
+
+    // Servicio de correo electrónico
+    document.getElementById('email-service-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const nombre = this.elements[0].value;
+      const servicioId = this.elements[1].value;
+      const enviarPrueba = this.elements[2].checked;
+      
+      if (!nombre || !servicioId) {
+        alert('Por favor complete todos los campos obligatorios (*)');
+        return;
+      }
+      
+      const mensaje = `Configuración guardada para:\n\nNombre: ${nombre}\nID de Servicio: ${servicioId}`;
+      alert(enviarPrueba ? `${mensaje}\n\nSe enviará un correo de prueba a kilometro0ec@gmail.com` : mensaje);
+      
+      if (enviarPrueba) {
+        setTimeout(() => {
+          console.log("Correo de prueba enviado a kilometro0ec@gmail.com");
+          // Aquí iría la conexión real con el servicio de correo
+        }, 1500);
+      }
+      
+      this.reset();
+    });
+
+    // Botón Cancelar del servicio de correo
+    document.getElementById('cancel-btn').addEventListener('click', function() {
+      if (confirm('¿Estás seguro de que deseas cancelar? Los cambios no guardados se perderán.')) {
+        document.getElementById('email-service-form').reset();
+      }
+    });
+
+    // Botón Desconectar del servicio de correo
+    document.querySelector('#email-service-form .btn-outline').addEventListener('click', function() {
+      if (confirm('¿Estás seguro de que deseas desconectar la cuenta de Gmail?')) {
+        alert('Cuenta desconectada correctamente');
+        // Aquí iría el código para desconectar realmente la cuenta
+      }
+    });
+
+    // Animación interactiva para el badge de crecimiento
+    document.querySelector('.growth-badge').addEventListener('mouseover', function() {
+      this.style.animation = 'pulseGrowth 0.8s infinite, flash 0.8s infinite';
+    });
+
+    document.querySelector('.growth-badge').addEventListener('mouseout', function() {
+      this.style.animation = 'pulseGrowth 2s infinite, flash 1.5s infinite';
+    });
+
+    // Función para enviar correos (simulación)
+    async function sendTestEmail() {
+      try {
+        // En un entorno real, aquí harías una llamada a tu backend
+        console.log("Enviando correo de prueba...");
+        
+        // Simular retraso de red
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Simular respuesta exitosa
+        return { success: true, message: "Correo enviado exitosamente" };
+        
+      } catch (error) {
+        console.error("Error al enviar correo:", error);
+        return { success: false, message: error.message };
+      }
+    }
+  </script>
+</body>
+</html>
