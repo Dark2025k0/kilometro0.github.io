@@ -2,20 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kilómetro Cero - Mensajería Premium en Ecuador</title>
   <link rel="icon" href="k0 transparente.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --negro: #000000;
       --rojo: #ff1e1e;
-      --gris-claro: #e8e8e8;
-      --gris-medio: #bbbbbb;
+      --gris-claro: #f5f5f5;
+      --gris-medio: #cccccc;
       --gris-oscuro: #1a1a1a;
-      --gris-cobertura: #2a2a2a;
-      --btn-hover: #c30000;
-      --whatsapp-green: #25D366;
+      --gris-cobertura: #e0e0e0; /* Nuevo gris para cobertura */
     }
 
     * {
@@ -30,8 +28,6 @@
       background-color: var(--negro);
       color: var(--gris-claro);
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Animación del logo */
@@ -41,19 +37,6 @@
       100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 30, 30, 0.5)); }
     }
 
-    /* Animaciones para badge */
-    @keyframes pulseGrowth {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0.7); }
-      50% { transform: scale(1.05); }
-      70% { box-shadow: 0 0 0 10px rgba(255, 30, 30, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0); }
-    }
-    @keyframes flash {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    /* HEADER */
     header {
       text-align: center;
       padding: 60px 20px 40px;
@@ -74,7 +57,6 @@
       font-size: 0.8rem;
       font-weight: 700;
       border: 1px solid var(--rojo);
-      user-select: none;
     }
 
     .logo {
@@ -90,7 +72,6 @@
       margin-bottom: 10px;
       letter-spacing: 2px;
       text-shadow: 0 0 15px rgba(255, 30, 30, 0.3);
-      user-select: none;
     }
 
     h2 {
@@ -111,7 +92,6 @@
       font-weight: 500;
       position: relative;
       font-size: 1.1rem;
-      transition: color 0.3s ease;
     }
 
     nav a::after {
@@ -120,23 +100,16 @@
       width: 0;
       height: 2px;
       background: var(--rojo);
-      transition: width 0.3s ease;
+      transition: width 0.3s;
       position: absolute;
       bottom: -4px;
       left: 0;
     }
 
-    nav a:hover,
-    nav a:focus {
-      color: var(--rojo);
-    }
-
-    nav a:hover::after,
-    nav a:focus::after {
+    nav a:hover::after {
       width: 100%;
     }
 
-    /* Botones */
     .btn {
       background: var(--rojo);
       border: none;
@@ -149,37 +122,24 @@
       box-shadow: 0 0 12px var(--rojo);
       transition: all 0.3s ease;
       font-weight: 500;
-      user-select: none;
     }
 
-    .btn:hover,
-    .btn:focus {
-      background: var(--btn-hover);
+    .btn:hover {
+      background: #c30000;
       transform: translateY(-2px);
       box-shadow: 0 0 20px var(--rojo);
-      outline: none;
-    }
-
-    .btn:focus-visible {
-      outline: 2px solid var(--rojo);
-      outline-offset: 3px;
     }
 
     .btn-outline {
       background: transparent;
       border: 1px solid var(--rojo);
       box-shadow: none;
-      color: var(--rojo);
     }
 
-    .btn-outline:hover,
-    .btn-outline:focus {
+    .btn-outline:hover {
       background: rgba(255, 30, 30, 0.1);
-      color: var(--btn-hover);
-      outline: none;
     }
 
-    /* SECCIONES */
     section {
       padding: 80px 20px;
       text-align: center;
@@ -195,7 +155,6 @@
       margin-bottom: 30px;
       position: relative;
       display: inline-block;
-      user-select: none;
     }
 
     h3::after {
@@ -206,7 +165,6 @@
       background: var(--rojo);
       margin: 10px auto 0;
       opacity: 0.5;
-      border-radius: 3px;
     }
 
     .grid {
@@ -224,36 +182,30 @@
       border: 1px solid #333;
       box-shadow: 0 0 10px rgba(255, 30, 30, 0.1);
       transition: all 0.3s ease;
-      text-align: left;
     }
 
-    .card:hover,
-    .card:focus-within {
+    .card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 25px rgba(255, 30, 30, 0.2);
       border-color: var(--rojo);
-      outline: none;
     }
 
     .card h4 {
       font-size: 1.3rem;
       margin-bottom: 15px;
       color: #fff;
-      user-select: none;
     }
 
     .card p {
       color: var(--gris-medio);
-      font-size: 1rem;
-      line-height: 1.4;
     }
 
     .highlight {
       color: var(--rojo);
-      font-weight: 600;
+      font-weight: 500;
     }
 
-    /* Cobertura */
+    /* SECCIÓN COBERTURA MEJORADA */
     .cobertura-container {
       max-width: 900px;
       margin: 40px auto;
@@ -266,7 +218,19 @@
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
       border: 2px solid var(--rojo);
-      background-color: var(--gris-cobertura);
+      background-color: var(--gris-cobertura); /* Fondo gris claro */
+    }
+
+    @keyframes pulseGrowth {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0.7); }
+      50% { transform: scale(1.05); }
+      70% { box-shadow: 0 0 0 10px rgba(255, 30, 30, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0); }
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     .growth-badge {
@@ -280,11 +244,8 @@
       font-weight: 700;
       display: flex;
       align-items: center;
-      animation: pulseGrowth 2s infinite, flash 1.5s infinite;
+      animation: pulseGrowth 2s infinite;
       z-index: 2;
-      user-select: none;
-      cursor: default;
-      font-size: 1rem;
     }
 
     .growth-badge::after {
@@ -294,32 +255,19 @@
       animation: flash 1.5s infinite;
     }
 
-    .zonas {
-      margin-top: 30px;
-      text-align: left;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      color: var(--gris-claro);
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-
     .zonas li {
       list-style: none;
+      font-size: 1.1rem;
       margin: 15px 0;
-      position: relative;
-      padding-left: 30px;
+      color: var(--gris-claro);
     }
 
     .zonas li::before {
       content: "📍";
-      position: absolute;
-      left: 0;
-      top: 0;
+      margin-right: 8px;
     }
 
-    /* Tracker */
+    /* [Resto de estilos se mantienen igual...] */
     .tracker-box {
       background: #222;
       padding: 30px;
@@ -328,7 +276,6 @@
       margin: 40px auto;
       border: 1px solid #333;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      text-align: left;
     }
 
     .tracker-box input {
@@ -340,18 +287,6 @@
       border-radius: 8px;
       margin-right: 10px;
       font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-    }
-
-    .tracker-box input:focus {
-      border-color: var(--rojo);
-      outline: none;
-    }
-
-    .tracker-box button {
-      padding: 14px 25px;
-      font-weight: 600;
     }
 
     #tracking-result {
@@ -359,53 +294,47 @@
       padding: 20px;
       background: #1a1a1a;
       border-radius: 8px;
+      text-align: left;
       border-left: 3px solid var(--rojo);
-      min-height: 120px;
-      font-size: 1rem;
-      color: var(--gris-claro);
     }
 
-    /* Testimonios */
     .testimonial {
       background: #222;
       padding: 30px;
       border-radius: 15px;
       border-left: 4px solid var(--rojo);
       text-align: left;
+    }
+
+    .testimonial p {
       font-style: italic;
-      font-size: 1.05rem;
+      margin-bottom: 15px;
       color: var(--gris-claro);
-      position: relative;
-      user-select: none;
+      font-size: 1.05rem;
     }
 
     .testimonial span {
-      font-weight: 600;
+      font-weight: 500;
       color: var(--rojo);
       display: block;
       text-align: right;
-      margin-top: 15px;
-      font-style: normal;
-      user-select: text;
     }
 
-    /* WhatsApp flotante */
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
       right: 30px;
       width: 65px;
       height: 65px;
-      background: var(--whatsapp-green);
+      background: #25D366;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
       z-index: 1000;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
       animation: pulse 2s infinite;
-      cursor: pointer;
     }
 
     @keyframes pulse {
@@ -414,32 +343,25 @@
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
-    .whatsapp-float:hover,
-    .whatsapp-float:focus {
+    .whatsapp-float:hover {
       transform: scale(1.1);
       animation: none;
-      outline: none;
     }
 
     .whatsapp-float img {
       width: 35px;
       height: 35px;
-      user-select: none;
-      pointer-events: none;
     }
 
-    /* Formulario contacto */
-    form#contact-form {
+    form {
       max-width: 500px;
       margin: 40px auto;
       display: flex;
       flex-direction: column;
       gap: 20px;
-      text-align: left;
     }
 
-    form#contact-form input,
-    form#contact-form textarea {
+    input, textarea {
       padding: 15px;
       background-color: #111;
       color: var(--gris-claro);
@@ -447,59 +369,36 @@
       border-radius: 8px;
       resize: none;
       font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
     }
 
-    form#contact-form input:focus,
-    form#contact-form textarea:focus {
-      border-color: var(--rojo);
-      outline: none;
-    }
-
-    form#contact-form input::placeholder,
-    form#contact-form textarea::placeholder {
+    input::placeholder, textarea::placeholder {
       color: #777;
     }
 
     .contact-info {
       margin-top: 30px;
       color: var(--gris-medio);
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      font-size: 1rem;
     }
 
     .contact-info a {
       color: var(--gris-claro);
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
     }
 
-    .contact-info a:hover,
-    .contact-info a:focus {
+    .contact-info a:hover {
       color: var(--rojo);
-      outline: none;
     }
 
-    /* Footer */
     footer {
       background: #111;
       color: #777;
       font-size: 0.9rem;
       text-align: center;
-      padding: 25px 20px;
+      padding: 25px;
       border-top: 1px solid #333;
-      user-select: none;
     }
 
-    footer p + p {
-      margin-top: 10px;
-    }
-
-    /* Stats */
     .stats {
       display: flex;
       justify-content: center;
@@ -513,58 +412,27 @@
       padding: 20px 30px;
       border-radius: 10px;
       border: 1px solid var(--rojo);
-      min-width: 130px;
-      user-select: none;
     }
 
     .stat-item h4 {
       font-size: 2.5rem;
       color: var(--rojo);
       margin-bottom: 5px;
-      font-weight: 700;
-      line-height: 1;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2.3rem;
-      }
-      nav a {
-        margin: 0 10px;
-        font-size: 0.9rem;
-      }
-      .tracker-box input {
-        width: 100%;
-        margin-bottom: 15px;
-      }
-      .stats {
-        gap: 15px;
-      }
-      .stat-item {
-        padding: 15px 20px;
-      }
-      .stat-item h4 {
-        font-size: 1.8rem;
-      }
-      .mapa-cobertura {
-        height: 300px;
-      }
+      h1 { font-size: 2.3rem; }
+      nav a { margin: 0 10px; font-size: 0.9rem; }
+      .tracker-box input { width: 100%; margin-bottom: 15px; }
+      .stats { gap: 15px; }
+      .stat-item { padding: 15px 20px; }
+      .stat-item h4 { font-size: 1.8rem; }
+      .mapa-cobertura { height: 300px; }
       .growth-badge {
         top: 10px;
         right: 10px;
         font-size: 0.8rem;
         padding: 8px 12px;
-      }
-      .card {
-        text-align: center;
-      }
-      .zonas {
-        font-size: 1rem;
-        padding: 0 10px;
-      }
-      form#contact-form {
-        max-width: 100%;
       }
     }
   </style>
@@ -572,13 +440,81 @@
 <body>
 
   <!-- HEADER -->
-  <header id="inicio" role="banner">
-    <img src="k0 transparente.png" alt="Logo Kilómetro Cero" class="logo" width="180" height="auto" />
+  <header id="inicio">
+    <img src="k0 transparente.png" alt="Logo Kilómetro Cero" class="logo">
     <h1>KILÓMETRO CERO</h1>
     <h2>"Entregas eficientes para un mundo conectado."</h2>
-    <nav role="navigation" aria-label="Menú principal">
+    <nav>
       <a href="#servicios">Servicios</a>
       <a href="#rastreo">Rastreo</a>
       <a href="#zonas">Cobertura</a>
       <a href="#nosotros">Nosotros</a>
-     
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="btn" onclick="document.getElementById('contacto').scrollIntoView()">Contáctanos</button>
+  </header>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h3>Nuestros Servicios</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>🚚 Última Milla</h4>
+        <p>Entregas rápidas en menos de <span class="highlight">24 horas</span> con seguimiento GPS en tiempo real y notificaciones.</p>
+      </div>
+      <div class="card">
+        <h4>💰 Pago Contra Entrega</h4>
+        <p>
+          <strong>Sistema seguro:</strong><br>
+          1. Programas el envío con cobranza<br>
+          2. Nuestro repartidor recauda<br>
+          3. Te transferimos en <span class="highlight">24 horas</span> (5% comisión)
+        </p>
+        <button class="btn btn-outline" style="margin-top: 15px;" onclick="openWhatsApp('pago contra entrega')">Detalles de cobranza</button>
+      </div>
+      <div class="card">
+        <h4>📸 Evidencia Digital</h4>
+        <p>Recibe <span class="highlight">foto geolocalizada</span> y firma digital del receptor en cada entrega.</p>
+      </div>
+      <div class="card">
+        <h4>📱 Comunicación Directa</h4>
+        <p>Soporte prioritario por <span class="highlight">WhatsApp Business</span> con respuesta en menos de 15 minutos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTADÍSTICAS -->
+  <section style="background: linear-gradient(to right, var(--negro), var(--gris-oscuro)); padding: 40px 20px;">
+    <div class="stats">
+      <div class="stat-item">
+        <h4>98%</h4>
+        <p>Tasa de efectividad<br>en entregas</p>
+      </div>
+      <div class="stat-item">
+        <h4>24h</h4>
+        <p>Tiempo promedio<br>de entrega</p>
+      </div>
+      <div class="stat-item">
+        <h4>100%</h4>
+        <p>Envíos con<br>seguimiento GPS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RASTREO -->
+  <section id="rastreo">
+    <h3>Rastrea tu Envío</h3>
+    <div class="tracker-box">
+      <input type="text" id="tracking-number" placeholder="Ej: K0-2024-ABC123">
+      <button class="btn" onclick="trackPackage()">Buscar Envío</button>
+      <div id="tracking-result"></div>
+    </div>
+  </section>
+
+  <!-- ZONAS - Sección actualizada con mapa interactivo -->
+  <section id="zonas">
+    <h3>Cobertura en Quito</h3>
+    
+    <div class="cobertura-container">
+      <div class="growth-badge">CRECIMIENTO 98%</div>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1rue098ufi3My-VkT-
