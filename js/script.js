@@ -5,28 +5,41 @@ document.getElementById('email-service-form').addEventListener('submit', functio
   // Obtener datos del formulario
   const nombre = this.elements[0].value;
   const servicioId = this.elements[1].value;
-  const enviarPrueba = this.elements[3].checked;
+  const enviarPrueba = this.elements[2].checked;
   
-  // Validación básica
+  // Validación
   if (!nombre || !servicioId) {
     alert('Por favor complete todos los campos obligatorios (*)');
     return;
   }
   
   // Mostrar mensaje de confirmación
-  alert(`Configuración de correo guardada para ${nombre} (ID: ${servicioId}).\n${enviarPrueba ? 'Se enviará un correo de prueba.' : ''}`);
+  const mensaje = `Configuración guardada para:\n\nNombre: ${nombre}\nID de Servicio: ${servicioId}`;
+  alert(enviarPrueba ? `${mensaje}\n\nSe enviará un correo de prueba a kilometro0ec@gmail.com` : mensaje);
   
-  // Aquí iría el código real para conectar con el servicio de correo
-  // En producción, esto se conectaría a un backend seguro
-  console.log('Datos para servicio de correo:', { nombre, servicioId, enviarPrueba });
+  // Simular envío de correo de prueba
+  if (enviarPrueba) {
+    setTimeout(() => {
+      console.log("Correo de prueba enviado a kilometro0ec@gmail.com");
+      // Aquí iría la conexión real con el servicio de correo
+    }, 1500);
+  }
   
-  // Simular envío a backend
-  setTimeout(() => {
-    if (enviarPrueba) {
-      console.log("Enviando correo de prueba...");
-      // Aquí iría la llamada real al servicio de correo
-    }
-  }, 1000);
-  
+  // Resetear formulario
   this.reset();
+});
+
+// Botón Cancelar
+document.querySelector('#email-service-form .btn-outline').addEventListener('click', function() {
+  if (confirm('¿Estás seguro de que deseas cancelar? Los cambios no guardados se perderán.')) {
+    document.getElementById('email-service-form').reset();
+  }
+});
+
+// Botón Desconectar
+document.querySelector('#email-service-form button[type="button"]').addEventListener('click', function() {
+  if (confirm('¿Estás seguro de que deseas desconectar la cuenta de Gmail?')) {
+    alert('Cuenta desconectada correctamente');
+    // Aquí iría el código para desconectar realmente la cuenta
+  }
 });
