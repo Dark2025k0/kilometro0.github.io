@@ -2,18 +2,20 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kilómetro Cero - Mensajería Premium en Ecuador</title>
   <link rel="icon" href="k0 transparente.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --negro: #000000;
       --rojo: #ff1e1e;
-      --gris-claro: #f5f5f5;
-      --gris-medio: #cccccc;
+      --gris-claro: #e8e8e8;
+      --gris-medio: #bbbbbb;
       --gris-oscuro: #1a1a1a;
-      --gris-cobertura: #e0e0e0; /* Nuevo gris para cobertura */
+      --gris-cobertura: #2a2a2a;
+      --btn-hover: #c30000;
+      --whatsapp-green: #25D366;
     }
 
     * {
@@ -28,6 +30,8 @@
       background-color: var(--negro);
       color: var(--gris-claro);
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Animación del logo */
@@ -37,6 +41,19 @@
       100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 30, 30, 0.5)); }
     }
 
+    /* Animaciones para badge */
+    @keyframes pulseGrowth {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0.7); }
+      50% { transform: scale(1.05); }
+      70% { box-shadow: 0 0 0 10px rgba(255, 30, 30, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0); }
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* HEADER */
     header {
       text-align: center;
       padding: 60px 20px 40px;
@@ -57,6 +74,7 @@
       font-size: 0.8rem;
       font-weight: 700;
       border: 1px solid var(--rojo);
+      user-select: none;
     }
 
     .logo {
@@ -72,6 +90,7 @@
       margin-bottom: 10px;
       letter-spacing: 2px;
       text-shadow: 0 0 15px rgba(255, 30, 30, 0.3);
+      user-select: none;
     }
 
     h2 {
@@ -92,6 +111,7 @@
       font-weight: 500;
       position: relative;
       font-size: 1.1rem;
+      transition: color 0.3s ease;
     }
 
     nav a::after {
@@ -100,16 +120,23 @@
       width: 0;
       height: 2px;
       background: var(--rojo);
-      transition: width 0.3s;
+      transition: width 0.3s ease;
       position: absolute;
       bottom: -4px;
       left: 0;
     }
 
-    nav a:hover::after {
+    nav a:hover,
+    nav a:focus {
+      color: var(--rojo);
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
       width: 100%;
     }
 
+    /* Botones */
     .btn {
       background: var(--rojo);
       border: none;
@@ -122,24 +149,37 @@
       box-shadow: 0 0 12px var(--rojo);
       transition: all 0.3s ease;
       font-weight: 500;
+      user-select: none;
     }
 
-    .btn:hover {
-      background: #c30000;
+    .btn:hover,
+    .btn:focus {
+      background: var(--btn-hover);
       transform: translateY(-2px);
       box-shadow: 0 0 20px var(--rojo);
+      outline: none;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--rojo);
+      outline-offset: 3px;
     }
 
     .btn-outline {
       background: transparent;
       border: 1px solid var(--rojo);
       box-shadow: none;
+      color: var(--rojo);
     }
 
-    .btn-outline:hover {
+    .btn-outline:hover,
+    .btn-outline:focus {
       background: rgba(255, 30, 30, 0.1);
+      color: var(--btn-hover);
+      outline: none;
     }
 
+    /* SECCIONES */
     section {
       padding: 80px 20px;
       text-align: center;
@@ -155,6 +195,7 @@
       margin-bottom: 30px;
       position: relative;
       display: inline-block;
+      user-select: none;
     }
 
     h3::after {
@@ -165,6 +206,7 @@
       background: var(--rojo);
       margin: 10px auto 0;
       opacity: 0.5;
+      border-radius: 3px;
     }
 
     .grid {
@@ -182,30 +224,36 @@
       border: 1px solid #333;
       box-shadow: 0 0 10px rgba(255, 30, 30, 0.1);
       transition: all 0.3s ease;
+      text-align: left;
     }
 
-    .card:hover {
+    .card:hover,
+    .card:focus-within {
       transform: translateY(-10px);
       box-shadow: 0 10px 25px rgba(255, 30, 30, 0.2);
       border-color: var(--rojo);
+      outline: none;
     }
 
     .card h4 {
       font-size: 1.3rem;
       margin-bottom: 15px;
       color: #fff;
+      user-select: none;
     }
 
     .card p {
       color: var(--gris-medio);
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     .highlight {
       color: var(--rojo);
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    /* SECCIÓN COBERTURA MEJORADA */
+    /* Cobertura */
     .cobertura-container {
       max-width: 900px;
       margin: 40px auto;
@@ -218,19 +266,7 @@
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
       border: 2px solid var(--rojo);
-      background-color: var(--gris-cobertura); /* Fondo gris claro */
-    }
-
-    @keyframes pulseGrowth {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0.7); }
-      50% { transform: scale(1.05); }
-      70% { box-shadow: 0 0 0 10px rgba(255, 30, 30, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 30, 30, 0); }
-    }
-
-    @keyframes flash {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+      background-color: var(--gris-cobertura);
     }
 
     .growth-badge {
@@ -244,8 +280,11 @@
       font-weight: 700;
       display: flex;
       align-items: center;
-      animation: pulseGrowth 2s infinite;
+      animation: pulseGrowth 2s infinite, flash 1.5s infinite;
       z-index: 2;
+      user-select: none;
+      cursor: default;
+      font-size: 1rem;
     }
 
     .growth-badge::after {
@@ -255,19 +294,32 @@
       animation: flash 1.5s infinite;
     }
 
+    .zonas {
+      margin-top: 30px;
+      text-align: left;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--gris-claro);
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
     .zonas li {
       list-style: none;
-      font-size: 1.1rem;
       margin: 15px 0;
-      color: var(--gris-claro);
+      position: relative;
+      padding-left: 30px;
     }
 
     .zonas li::before {
       content: "📍";
-      margin-right: 8px;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
 
-    /* [Resto de estilos se mantienen igual...] */
+    /* Tracker */
     .tracker-box {
       background: #222;
       padding: 30px;
@@ -276,6 +328,7 @@
       margin: 40px auto;
       border: 1px solid #333;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-align: left;
     }
 
     .tracker-box input {
@@ -287,6 +340,18 @@
       border-radius: 8px;
       margin-right: 10px;
       font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .tracker-box input:focus {
+      border-color: var(--rojo);
+      outline: none;
+    }
+
+    .tracker-box button {
+      padding: 14px 25px;
+      font-weight: 600;
     }
 
     #tracking-result {
@@ -294,47 +359,53 @@
       padding: 20px;
       background: #1a1a1a;
       border-radius: 8px;
-      text-align: left;
       border-left: 3px solid var(--rojo);
+      min-height: 120px;
+      font-size: 1rem;
+      color: var(--gris-claro);
     }
 
+    /* Testimonios */
     .testimonial {
       background: #222;
       padding: 30px;
       border-radius: 15px;
       border-left: 4px solid var(--rojo);
       text-align: left;
-    }
-
-    .testimonial p {
       font-style: italic;
-      margin-bottom: 15px;
-      color: var(--gris-claro);
       font-size: 1.05rem;
+      color: var(--gris-claro);
+      position: relative;
+      user-select: none;
     }
 
     .testimonial span {
-      font-weight: 500;
+      font-weight: 600;
       color: var(--rojo);
       display: block;
       text-align: right;
+      margin-top: 15px;
+      font-style: normal;
+      user-select: text;
     }
 
+    /* WhatsApp flotante */
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
       right: 30px;
       width: 65px;
       height: 65px;
-      background: #25D366;
+      background: var(--whatsapp-green);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
       z-index: 1000;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
       animation: pulse 2s infinite;
+      cursor: pointer;
     }
 
     @keyframes pulse {
@@ -343,25 +414,32 @@
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
-    .whatsapp-float:hover {
+    .whatsapp-float:hover,
+    .whatsapp-float:focus {
       transform: scale(1.1);
       animation: none;
+      outline: none;
     }
 
     .whatsapp-float img {
       width: 35px;
       height: 35px;
+      user-select: none;
+      pointer-events: none;
     }
 
-    form {
+    /* Formulario contacto */
+    form#contact-form {
       max-width: 500px;
       margin: 40px auto;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      text-align: left;
     }
 
-    input, textarea {
+    form#contact-form input,
+    form#contact-form textarea {
       padding: 15px;
       background-color: #111;
       color: var(--gris-claro);
@@ -369,36 +447,59 @@
       border-radius: 8px;
       resize: none;
       font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
     }
 
-    input::placeholder, textarea::placeholder {
+    form#contact-form input:focus,
+    form#contact-form textarea:focus {
+      border-color: var(--rojo);
+      outline: none;
+    }
+
+    form#contact-form input::placeholder,
+    form#contact-form textarea::placeholder {
       color: #777;
     }
 
     .contact-info {
       margin-top: 30px;
       color: var(--gris-medio);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 1rem;
     }
 
     .contact-info a {
       color: var(--gris-claro);
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
 
-    .contact-info a:hover {
+    .contact-info a:hover,
+    .contact-info a:focus {
       color: var(--rojo);
+      outline: none;
     }
 
+    /* Footer */
     footer {
       background: #111;
       color: #777;
       font-size: 0.9rem;
       text-align: center;
-      padding: 25px;
+      padding: 25px 20px;
       border-top: 1px solid #333;
+      user-select: none;
     }
 
+    footer p + p {
+      margin-top: 10px;
+    }
+
+    /* Stats */
     .stats {
       display: flex;
       justify-content: center;
@@ -412,27 +513,58 @@
       padding: 20px 30px;
       border-radius: 10px;
       border: 1px solid var(--rojo);
+      min-width: 130px;
+      user-select: none;
     }
 
     .stat-item h4 {
       font-size: 2.5rem;
       color: var(--rojo);
       margin-bottom: 5px;
+      font-weight: 700;
+      line-height: 1;
     }
 
+    /* Responsive */
     @media (max-width: 600px) {
-      h1 { font-size: 2.3rem; }
-      nav a { margin: 0 10px; font-size: 0.9rem; }
-      .tracker-box input { width: 100%; margin-bottom: 15px; }
-      .stats { gap: 15px; }
-      .stat-item { padding: 15px 20px; }
-      .stat-item h4 { font-size: 1.8rem; }
-      .mapa-cobertura { height: 300px; }
+      h1 {
+        font-size: 2.3rem;
+      }
+      nav a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+      }
+      .tracker-box input {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+      .stats {
+        gap: 15px;
+      }
+      .stat-item {
+        padding: 15px 20px;
+      }
+      .stat-item h4 {
+        font-size: 1.8rem;
+      }
+      .mapa-cobertura {
+        height: 300px;
+      }
       .growth-badge {
         top: 10px;
         right: 10px;
         font-size: 0.8rem;
         padding: 8px 12px;
+      }
+      .card {
+        text-align: center;
+      }
+      .zonas {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+      form#contact-form {
+        max-width: 100%;
       }
     }
   </style>
@@ -440,273 +572,13 @@
 <body>
 
   <!-- HEADER -->
-  <header id="inicio">
-    <img src="k0 transparente.png" alt="Logo Kilómetro Cero" class="logo">
+  <header id="inicio" role="banner">
+    <img src="k0 transparente.png" alt="Logo Kilómetro Cero" class="logo" width="180" height="auto" />
     <h1>KILÓMETRO CERO</h1>
     <h2>"Entregas eficientes para un mundo conectado."</h2>
-    <nav>
+    <nav role="navigation" aria-label="Menú principal">
       <a href="#servicios">Servicios</a>
       <a href="#rastreo">Rastreo</a>
       <a href="#zonas">Cobertura</a>
       <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-    <button class="btn" onclick="document.getElementById('contacto').scrollIntoView()">Contáctanos</button>
-  </header>
-
-  <!-- SERVICIOS -->
-  <section id="servicios">
-    <h3>Nuestros Servicios</h3>
-    <div class="grid">
-      <div class="card">
-        <h4>🚚 Última Milla</h4>
-        <p>Entregas rápidas en menos de <span class="highlight">24 horas</span> con seguimiento GPS en tiempo real y notificaciones.</p>
-      </div>
-      <div class="card">
-        <h4>💰 Pago Contra Entrega</h4>
-        <p>
-          <strong>Sistema seguro:</strong><br>
-          1. Programas el envío con cobranza<br>
-          2. Nuestro repartidor recauda<br>
-          3. Te transferimos en <span class="highlight">24 horas</span> (5% comisión)
-        </p>
-        <button class="btn btn-outline" style="margin-top: 15px;" onclick="openWhatsApp('pago contra entrega')">Detalles de cobranza</button>
-      </div>
-      <div class="card">
-        <h4>📸 Evidencia Digital</h4>
-        <p>Recibe <span class="highlight">foto geolocalizada</span> y firma digital del receptor en cada entrega.</p>
-      </div>
-      <div class="card">
-        <h4>📱 Comunicación Directa</h4>
-        <p>Soporte prioritario por <span class="highlight">WhatsApp Business</span> con respuesta en menos de 15 minutos.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ESTADÍSTICAS -->
-  <section style="background: linear-gradient(to right, var(--negro), var(--gris-oscuro)); padding: 40px 20px;">
-    <div class="stats">
-      <div class="stat-item">
-        <h4>98%</h4>
-        <p>Tasa de efectividad<br>en entregas</p>
-      </div>
-      <div class="stat-item">
-        <h4>24h</h4>
-        <p>Tiempo promedio<br>de entrega</p>
-      </div>
-      <div class="stat-item">
-        <h4>100%</h4>
-        <p>Envíos con<br>seguimiento GPS</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- RASTREO -->
-  <section id="rastreo">
-    <h3>Rastrea tu Envío</h3>
-    <div class="tracker-box">
-      <input type="text" id="tracking-number" placeholder="Ej: K0-2024-ABC123">
-      <button class="btn" onclick="trackPackage()">Buscar Envío</button>
-      <div id="tracking-result"></div>
-    </div>
-  </section>
-
-  <!-- ZONAS - Sección actualizada con mapa interactivo -->
-  <section id="zonas">
-    <h3>Cobertura en Quito</h3>
-    
-    <div class="cobertura-container">
-      <div class="growth-badge">CRECIMIENTO 98%</div>
-      <iframe src="https://www.google.com/maps/d/embed?mid=1rue098ufi3My-VkT-NEtVKMx-LBL4RA&hl=es&ehbc=2E312F" 
-              class="mapa-cobertura"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy">
-      </iframe>
-    </div>
-
-    <ul class="zonas" style="margin-top: 30px;">
-      <li><strong>Área Metropolitana:</strong> Cobertura completa con eficiencia del 98%</li>
-      <li><strong>Zonas destacadas:</strong> Centro Histórico, Norte, Sur, Valles</li>
-      <li><strong>Expansión continua:</strong> Nuevas áreas agregadas mensualmente</li>
-    </ul>
-
-    <p style="margin-top: 20px; color: var(--gris-medio);">
-      <button class="btn btn-outline" onclick="openWhatsApp('cobertura en Quito')">Consulta tu sector</button>
-    </p>
-  </section>
-
-  <!-- NOSOTROS -->
-  <section id="nosotros" style="background: linear-gradient(to bottom, var(--gris-oscuro), var(--negro));">
-    <h3>¿Por Qué Elegirnos?</h3>
-    <div class="grid">
-      <div class="card">
-        <h4>🔝 Efectividad del 98%</h4>
-        <p>La mayor tasa de entregas exitosas en el mercado, respaldada por datos reales.</p>
-      </div>
-      <div class="card">
-        <h4>🛡️ Seguridad Garantizada</h4>
-        <p>Repartidores verificados y protocolos estrictos para proteger tus envíos.</p>
-      </div>
-      <div class="card">
-        <h4>💡 Tecnología Propia</h4>
-        <p>Plataforma desarrollada localmente para adaptarse a tus necesidades.</p>
-      </div>
-      <div class="card">
-        <h4>🤝 Enfoque Personalizado</h4>
-        <p>Soluciones logísticas diseñadas para cada tipo de negocio.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIOS -->
-  <section id="testimonios">
-    <h3>Lo Que Dicen Nuestros Clientes</h3>
-    <div class="grid">
-      <div class="testimonial">
-        <p>"El servicio de pago contra entrega revolucionó mi negocio. Ahora mis clientes pagan al recibir y Kilómetro Cero me transfiere al día siguiente sin problemas."</p>
-        <span>- Luisa M., Tienda Online de Moda</span>
-      </div>
-      <div class="testimonial">
-        <p>"Con una efectividad del 98%, es el único servicio que cumple. Las fotos con geolocalización me dan tranquilidad absoluta."</p>
-        <span>- Roberto C., Distribuidor de Electrónicos</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto">
-    <h3>Contacto</h3>
-    <form id="contact-form">
-      <input type="text" placeholder="Nombre completo" required>
-      <input type="email" placeholder="Correo electrónico" required>
-      <input type="tel" placeholder="Teléfono (opcional)">
-      <textarea rows="5" placeholder="Cuéntanos sobre tus necesidades logísticas..." required></textarea>
-      <button type="submit" class="btn">Enviar Mensaje</button>
-    </form>
-    
-    <div class="contact-info">
-      <p>O contáctanos directamente:</p>
-      <p>
-        <a href="mailto:kilometro0ec@gmail.com">✉️ kilometro0ec@gmail.com</a><br>
-        <a href="tel:+593984116019">📞 +593 98 411 6019</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- WhatsApp flotante -->
-  <a href="https://wa.me/593984116019?text=Hola%20Kilómetro%20Cero,%20necesito%20información%20sobre%20sus%20servicios" class="whatsapp-float">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Kilómetro Cero. Todos los derechos reservados.</p>
-    <p style="margin-top: 10px;">Logística de última milla con tecnología ecuatoriana.</p>
-  </footer>
-
-  <script>
-    // Rastreador de envíos (simulación mejorada)
-    function trackPackage() {
-      const trackingNumber = document.getElementById('tracking-number').value.trim().toUpperCase();
-      const fakeTrackingData = {
-        "K0-2024": { 
-          status: "🚚 En reparto", 
-          location: "Quito, sector norte", 
-          estimated: "Hoy hasta las 18:00",
-          steps: [
-            { time: "10:30 AM", event: "Recolección completada", details: "Paquete recibido en nuestro centro" },
-            { time: "12:15 PM", event: "En centro de distribución", details: "Preparando para entrega final" },
-            { time: "15:00 PM", event: "En ruta de entrega", details: "Repartidor: Carlos Pérez - Contacto: 0991234567" }
-          ],
-          note: "El receptor recibirá notificación 30 mins antes"
-        },
-        "K0-5678": { 
-          status: "✅ Entregado", 
-          location: "Valle de los Chillos", 
-          deliveredAt: "05/06/2024 a las 14:30",
-          receiver: "María Gómez (Firma digital verificada)",
-          payment: "$45.00 cobrados (transferidos a cliente)",
-          photo: "evidencia-05-06-2024.jpg"
-        }
-      };
-
-      const resultDiv = document.getElementById('tracking-result');
-      
-      if (fakeTrackingData[trackingNumber]) {
-        const pkg = fakeTrackingData[trackingNumber];
-        let html = `
-          <h4 style="color: var(--rojo); margin-bottom: 15px;">Envío ${trackingNumber}</h4>
-          <p><strong>Estado:</strong> <span style="color: ${pkg.status.includes('✅') ? '#2ecc71' : '#f39c12'}">${pkg.status}</span></p>
-          <p><strong>Ubicación:</strong> ${pkg.location}</p>
-        `;
-        
-        if (pkg.estimated) {
-          html += `
-            <p><strong>Entrega estimada:</strong> ${pkg.estimated}</p>
-            <div style="margin-top: 20px; background: #222; padding: 15px; border-radius: 8px;">
-              <h5 style="color: var(--gris-medio); margin-bottom: 10px;">📋 Historial del envío:</h5>
-              <ul style="margin-left: 20px;">
-          `;
-          pkg.steps.forEach(step => {
-            html += `
-              <li style="margin-bottom: 10px;">
-                <strong>${step.time}:</strong> ${step.event}
-                ${step.details ? `<br><small style="color: var(--gris-medio);">${step.details}</small>` : ''}
-              </li>
-            `;
-          });
-          html += `
-              </ul>
-              ${pkg.note ? `<p style="margin-top: 10px; font-size: 0.9em;"><small>📌 ${pkg.note}</small></p>` : ''}
-            </div>
-          `;
-        } else {
-          html += `
-            <p><strong>Entregado el:</strong> ${pkg.deliveredAt}</p>
-            <p><strong>Recibió:</strong> ${pkg.receiver}</p>
-            ${pkg.payment ? `<p><strong>Cobranza:</strong> ${pkg.payment}</p>` : ''}
-            ${pkg.photo ? `<p><strong>Evidencia:</strong> <a href="#" style="color: var(--rojo);">Ver foto de entrega</a></p>` : ''}
-          `;
-        }
-        
-        resultDiv.innerHTML = html;
-      } else if (trackingNumber === "") {
-        resultDiv.innerHTML = `<p style="color: var(--gris-medio);">🔍 Por favor ingresa tu número de guía (ej: K0-2024-ABC123)</p>`;
-      } else {
-        resultDiv.innerHTML = `
-          <p>⚠️ No encontramos el envío <strong>${trackingNumber}</strong>.</p>
-          <p style="margin-top: 10px;">Verifica el número o <a href="#contacto" style="color: var(--rojo);">contáctanos</a> para asistencia.</p>
-        `;
-      }
-    }
-
-    // WhatsApp con mensaje personalizado
-    function openWhatsApp(topic) {
-      const message = `Hola Kilómetro Cero, necesito información sobre: ${topic || 'sus servicios'}`;
-      window.open(`https://wa.me/593984116019?text=${encodeURIComponent(message)}`, '_blank');
-    }
-
-    // Envío de formulario (simulación)
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('📩 Gracias por tu mensaje. Nos contactaremos contigo en menos de 2 horas hábiles.');
-      this.reset();
-      
-      // Simular envío a Google Sheets o backend
-      setTimeout(() => {
-        console.log("Datos del formulario enviados al servidor");
-      }, 1000);
-    });
-
-    // Animación interactiva para el badge de crecimiento
-    document.querySelector('.growth-badge').addEventListener('mouseover', function() {
-      this.style.animation = 'pulseGrowth 0.8s infinite, flash 0.8s infinite';
-    });
-
-    document.querySelector('.growth-badge').addEventListener('mouseout', function() {
-      this.style.animation = 'pulseGrowth 2s infinite, flash 1.5s infinite';
-    });
-  </script>
-</body>
-</html>
+     
